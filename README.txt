@@ -3,6 +3,7 @@ A new Linux Distribution, compiled from Scratch, completly from Source. Automate
 (Based on LFS,BLFS)
 
 
+
 Hey,
 
 these are my build scripts to compile a completet Linux from Base System ( Kernel, gcc, glibc, ... ) 
