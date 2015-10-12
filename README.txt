@@ -1,5 +1,7 @@
 # aLinux
 A new Linux Distribution, compiled from Scratch, completly from Source. Automated as mutch as possible.
+(Based on LFS,BLFS)
+
 
 Hey,
 
