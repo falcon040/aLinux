@@ -21,3 +21,5 @@ To start, you need a Computer with any actual Linux Distrubution installed and a
 At the Moment the Scripts are very tricky, but result in a working , booting , compiling til KDE5-Plasma build from git.
 
 Have Fun!
+
+Mirko
