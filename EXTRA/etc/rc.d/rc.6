@@ -1,0 +1,72 @@
+#!/bin/sh
+
+#echo "Deleting all tmp files..."
+#/bin/rm -rf /var/log/*
+#/bin/rm -rf /tmp/.??* /tmp/*
+#/bin/rm -rf /var/run/*
+#/bin/rm -rf /var/spool/cups/*
+
+/bin/sync
+echo "Sending all processes the TERM signal..."
+/sbin/killall5 -15
+sleep 1
+
+echo "Sending all processes the KILL signal..."
+/sbin/killall5 -9
+sleep 1
+
+
+#if test -e /var/run/gpm.pid
+#then
+#  /bin/rm /var/run/gpm.pid
+#fi
+
+#if test -e /root/.licq/licq.pid
+#then
+#  /bin/rm  /root/.licq/licq.pid
+#fi
+
+/bin/sync
+
+#echo "Deactivating swap partitions..."
+/sbin/swapoff -a
+
+#echo "Saving random seed to a temporary file..."
+#/bin/dd if=/dev/urandom of=/tmp/random-seed count=1 bs=512 2>/dev/null
+
+#echo "Saving the system time to hardware clock..."
+#/sbin/hwclock --systohc --utc
+
+#umount  /sys/fs/fuse/connections
+
+#echo "Unmounting remote filesystems..."
+/bin/umount -a -f -tnfs
+
+case "$0" in
+  *6)
+    /sbin/reboot -w
+    ;;
+  *0)
+    /sbin/halt -w
+    ;;
+esac
+
+#echo "Remounting root filesystem read-only..."
+/bin/mount -n -o remount,ro /
+
+#echo "Unmounting local filesystems..."
+/bin/umount -a -tnonfs
+
+echo "Flushing filesystem buffers..."
+/bin/sync
+
+case "$0" in
+  *6)
+    echo "Please stand by while rebooting..."
+    /sbin/reboot -d -f -i
+    ;;
+  *0)
+    echo "Bye..."
+    /sbin/halt -d -f -p
+    ;;
+esac

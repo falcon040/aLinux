@@ -1,0 +1,15 @@
+export  PS1="\`hostname\`:\${PWD}>"
+#export PS1='\u:\w\$ '
+#export PS1="[\u@\h \w]\\$ "
+#export PS1='\u@\h:\w\$ '
+
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11/bin:/opt/kde/install/bin:/opt/qt5/bin:/opt/java/bin:/opt/ant/bin
+
+export JAVA_HOME=/opt/java
+export QT5DIR=/opt/qt5
+export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
+
+#export KDEDIR=/opt/kde
+
+alias grep="grep --color"
+alias ll="ls -al --color"

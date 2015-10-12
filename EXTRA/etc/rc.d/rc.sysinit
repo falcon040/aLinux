@@ -1,0 +1,100 @@
+#!/bin/sh
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+sleep 1
+echo ""
+echo ""
+
+# Mounting /proc /sys /dev /var right away:
+echo "Mounting /proc /sys /dev /dev/pts /dev/shm /var ..."
+mount -v  proc     /proc -n -t proc
+mount -v  sysfs    /sys  -n -t sysfs
+
+if [ -d /dev/usb ]; then
+echo "Devfs bereits vom Kernel gemountet..."
+else
+mount -vt devtmpfs udev /dev
+fi
+
+mkdir /dev/shm /dev/pts
+mount -vt devpts   devpts /dev/pts -o gid=5,mode=620
+
+mount -n  tmpfs    /var -ttmpfs -o size=32m
+mkdir /var/empty /var/lib /var/lock /var/log /var/mail /var/run /var/spool /var/lib/sshd /var/lib/nfs
+ln -s /tmp /var/tmp
+#check!
+#touch /var/lib/nfs/etab
+#touch /var/lib/nfs/rmtab
+
+echo "Starting udevd ..."
+udevd --daemon
+udevadm trigger
+udevadm settle
+
+# Enable swapping:
+swapon -a
+
+echo "Checking Filesystem ..."
+fsck -A -a -C
+if [ $? -gt 1 ]; then
+   echo
+   echo "ERROR:"
+   echo "Your filesystem has been severely damaged. You can probably correct this"
+   echo "problem by running e2fsck manually (eg. with the -v and -y options). After"
+   echo "you logout, the system will reboot."
+   echo
+   PS1="(Repair filesystem)# "
+   export PS1
+   /sbin/sulogin
+   /bin/umount -a -r
+   /sbin/reboot -f
+fi
+
+echo "Remounting root device with read-write enabled."
+mount -w -v -n -o remount /
+
+# remove mtab, couse content is no longer valid
+/bin/rm -f /etc/mtab*
+# remount / (rw) and add to mtab
+mount -w -o remount /
+# add all to mtab
+  mount -f   proc    /proc -t proc
+  mount -f   sysfs   /sys -t sysfs
+  mount -fvt devpts  devpts /dev/pts -o gid=5,mode=620  
+  mount -fn  tmpfs   /var -ttmpfs -o size=32m
+
+# mount all other entrys in fstab, but not proc and samba    
+mount -a -v -t nonfs,nosmbfs,noproc
+
+echo "Mounting /tmp ..."
+mount tmpfs /tmp -ttmpfs -o size=2048m
+
+echo "Setting up loopback networking..."
+#/usr/bin/ifconfig lo 127.0.0.1
+#/sbin/route add -net 127.0.0.0 netmask 255.0.0.0 lo
+ip addr add 127.0.0.1 dev lo
+ip link set lo up
+#ip route add 127.0.0.0/8 dev lo scope link
+
+echo "Setting up hostname..."
+hostname bladerunner
+#/bin/domainname de
+
+#if [ -f "/tmp/random-seed" ]; then
+#  echo "Initializing random number generator..."
+#  /bin/cat /tmp/random-seed >/dev/urandom
+#  rm -f /tmp/random-seed
+#fi
+
+
+#echo "Setting system time from hardware clock..."
+#hwclock --hctosys 
+
+echo "Starting system and kernel log daemons..."
+touch /var/log/wtmp
+syslogd -m 0 
+klogd -c3
+
+echo "Updating module dependencies..."
+depmod -a &

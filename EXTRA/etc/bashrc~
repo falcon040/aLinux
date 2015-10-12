@@ -1,0 +1,5 @@
+export PS1='\u:\w\$ '
+alias ll="ls -al --color"
+#alias aviplay="mplayer -channels 4 -cache 1024 "
+#alias mplayer_vdpau="mplayer -vo vdpau -vc ffmpeg12vdpau,ffh264vdpau,ffvc1vdpau,ffwmv3vdpau -demuxer lavf "
+alias grep="grep --color"

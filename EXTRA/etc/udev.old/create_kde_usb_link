@@ -1,0 +1,24 @@
+# echo "MIRKO $1 $2"
+# $1 ist "add" oder "remove"
+# $2 ist "/dev/sdf1" oder anderes device
+
+
+datei=/root/Desktop/$2
+
+if test $1 = add 
+then
+echo [Desktop Entry] > $datei
+echo Dev=/dev/$2 >> $datei
+echo Encoding=UTF-8 >> $datei
+echo Icon=sd_mmc_mount >> $datei
+echo MountPoint=/mnt/$2 >> $datei
+echo ReadOnly=false >> $datei
+echo Type=FSDevice >> $datei
+echo UnmountIcon=sd_mmc_unmount >> $datei
+mkdir /mnt/$2
+fi
+
+if test $1 = remove
+then
+rm /root/Desktop/$2
+fi

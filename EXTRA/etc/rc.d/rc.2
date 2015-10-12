@@ -1,0 +1,83 @@
+#!/bin/sh
+
+echo "Setting up Networking..."
+#ip addr add 192.168.40.84/24 dev eth2
+#ip link set eth2 up
+#ip link set eth2 mtu 1200 
+
+#ip route add default via 192.168.40.70 dev eth2
+#ip route add 192.168.33.10/32 via 192.168.40.74
+
+
+# Ping ausschalten
+#echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+#echo "Starting sshd server..."
+#/usr/sbin/sshd
+
+#echo "Starting RPC portmap daemon..."
+#/sbin/portmap &
+#sleep 1
+
+#echo "Starting NFS server daemons..."
+#/usr/sbin/rpc.mountd
+#/usr/sbin/rpc.nfsd
+
+#echo "Starting cron daemon..."
+#/usr/sbin/fcron -d
+
+echo "Loading the mouse driver..."
+/usr/sbin/gpm -m /dev/psaux -t ps2
+
+#echo "Mounting remote filesystems..."
+#/bin/mount -a -v -tnfs
+
+#echo "Starting cupsd printer spool system..."
+#/usr/sbin/cupsd
+
+#echo "Starting proftpd ftp server..."
+#/usr/sbin/proftpd
+
+tail -f /var/log/sys.log >/dev/tty12 &
+
+echo "Loading de Keymap..."
+/usr/bin/loadkeys /etc/keymap.map
+/usr/bin/setfont latarcyrheb-sun32.psfu.gz
+
+echo "Linking /dev/cdrom to /dev/sr0..."
+/bin/ln -s /dev/sr0 /dev/cdrom
+/bin/ln -s /dev/sr0 /dev/dvd
+
+#echo "Setting cdrom to low-speed..."
+#/usr/sbin/cdctl -b1
+
+# Soundeinstellungen ...
+#echo "Setting Sound Volume..."
+#/usr/sbin/aumix -v 100 -w 20 -W 100 
+
+# nvidia kernel modul laden
+# modprobe nvidia
+#echo "Loading nvidia kernel modul..."
+#insmod /opt/nvidia/nvidia.ko
+
+# Screen blanks after 10 minutes idle time, and powers down in 30 minutes
+# if the kernel supports APM or ACPI power management
+/usr/bin/setterm -blank 10 -powersave powerdown -powerdown 30
+
+# udevd starten
+#udevd --daemon
+
+# remote smb server einbinden
+#/usr/bin/smbmount //192.168.5.2/mirko /mnt/samba -o rw,username=mirko,password=mirko,ttl=10000ms,rsize=1024,wsize=1024,codepage=cp1250 &
+
+# NFS Datenbank updaten !
+#/usr/sbin/exportfs -ar
+
+#echo "Starting Dbus..."
+#mkdir /var/lib/dbus
+#dbus-uuidgen > /var/lib/dbus/machine-id
+##dbus-launch > /dev/null
+
+# Apple Keyboard F-Tasten
+test -e /sys/module/hid_apple/parameters/fnmode && ( echo 2 > /sys/module/hid_apple/parameters/fnmode ;echo "Apple Keyboard F-Keys On...")
+
