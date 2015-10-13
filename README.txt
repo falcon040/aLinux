@@ -22,3 +22,21 @@ At the Moment the Scripts are very tricky, but result in a working , booting , c
 
 Have Fun!
 
+
+
+
+
+HOW-To-START:
+
+# /lfs schould me mounted on a new partition or new hd, formated to ext4,
+# minimum 20 GB
+ 
+mkdir /lfs
+
+#discard on ssd is the trim command
+mount /dev/xyz /lfs -odiscard,noatime
+
+copy -a aLinux/* /lfs/
+cd /lfs
+# start the script now, follow instructions
+
