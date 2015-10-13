@@ -28,6 +28,10 @@ Have Fun!
 
 HOW-To-START:
 
+# On Mint Linux 17-2 as host System, you must install the c++ compiler with
+# apt-get install g++ 
+# first
+
 # /lfs schould me mounted on a new partition or new hd, formated to ext4,
 # minimum 20 GB
  
