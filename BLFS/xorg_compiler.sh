@@ -86,7 +86,7 @@ wget -c http://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.2.tar.gz
 wget -c http://dri.freedesktop.org/libdrm/libdrm-2.4.65.tar.bz2
-wget -c ftp://ftp.freedesktop.org/pub/mesa/10.6.9/mesa-10.6.9.tar.xz
+wget -c ftp://ftp.freedesktop.org/pub/mesa/11.0.3/mesa-11.0.3.tar.xz
 wget -c ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2
 wget -c http://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
 test -e libva-base-1.6.1.tar.bz2 || (wget -c http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.6.1.tar.bz2
