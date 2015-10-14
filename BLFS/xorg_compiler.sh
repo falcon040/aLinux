@@ -380,6 +380,7 @@ for paket in ${liste[@]}
      			#ln -svt /etc/X11 $XORG_PREFIX/lib/X11/{xdm,xinit,xserver,xsm}
      			cp ../EXTRA/xorg.conf    /etc/X11/
   			cp ../EXTRA/xmodmap.map  /etc/X11/
+  			mkdir /etc/X11/xinit
 			cp ../EXTRA/xinitrc /etc/X11/xinit/xinitrc
 
   			# wegen pulseaudio 6.0

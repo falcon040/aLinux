@@ -9,14 +9,14 @@ export LFS=/lfs
 export CC="gcc -s "
 export J=5
 
-#cmake configs 
-#cmake() {
-#extra=$1
-#mkdir -v build &&
-#cd       build 
-#cmake $extra ..
-#make -j $J ; make install
-#}
+
+config_cmake() { 
+extra=$1
+mkdir -v build &&
+cd       build 
+cmake $extra ..
+make -j $J ; make install
+}
 
 #Default configure fuer ~70% der Pakete
 config () {
@@ -189,146 +189,170 @@ xmlcatalog --noout --add "rewriteURI" \
 }
     
 downloadliste=(
- #"http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz"
- #"ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.7.tar.gz"
- #"ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz"
- #"https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz"
- #"ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.5.tar.xz"
- #"ftp://ftp.gnu.org/gnu/wget/wget-1.16.3.tar.gz"
- #"ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
- #"ftp://ftp.netfilter.org/pub/iptables/iptables-1.4.21.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.20.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.6.4.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.3.0.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.3.3.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/npth/npth-1.2.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
- #"ftp://ftp.gnu.org/pub/gnu/ed/ed-1.9.tar.gz"
- #"ftp://anduin.linuxfromscratch.org/BLFS/svn/p/popt-1.16.tar.gz"
- #"ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
- #"http://pkgs.fedoraproject.org/repo/pkgs/expat/expat-2.1.0.tar.gz/dd7dab7a5fea97d2a6a43f511449b7cd/expat-2.1.0.tar.gz"  
- #"https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tar.xz"
- #"https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz"
- #"ftp://xmlsoft.org/libxml2/libxml2-2.9.2.tar.gz"
- #"ftp://xmlsoft.org/libxslt/libxslt-1.1.28.tar.gz"
- #"http://ftp.acc.umu.se/pub/gnome/sources/glib/2.45/glib-2.45.8.tar.xz"
- #"ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz"
- #"https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.4.0.tar.xz"
- #"ftp://ftp.x.org/pub/individual/lib/libpciaccess-0.13.4.tar.bz2"
- #"http://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2"
- #"http://downloads.sourceforge.net/libusb/libusb-compat-0.1.5.tar.bz2"
- #"ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-008.tar.xz"
- #"http://curl.haxx.se/download/curl-7.45.0.tar.lzma"
- #"ftp://ftp.kernel.org/pub/software/scm/git/git-2.6.1.tar.xz"
- #"https://pypi.python.org/packages/source/s/setuptools/setuptools-17.1.1.tar.gz"
- #"https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz"
- #"https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
- #"https://pypi.python.org/packages/source/M/Mako/Mako-1.0.2.tar.gz"
- #"ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz"
- #"ftp://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
- #"http://downloads.sourceforge.net/hunspell/hunspell-1.3.3.tar.gz"
- #"http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz"
- #"http://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.3.3.tar.gz"
- #"http://www.nasm.us/pub/nasm/releasebuilds/2.11.08/nasm-2.11.08.tar.xz"
- #"http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.4.2.tar.gz"
- #"http://downloads.sourceforge.net/libpng/libpng-1.6.18.tar.xz"
- #"ftp://ftp.remotesensing.org/libtiff/tiff-4.0.6.tar.gz"
- #"http://downloads.sourceforge.net/giflib/giflib-5.1.1.tar.bz2"
- #"http://downloads.sourceforge.net/project/lcms/lcms/2.7/lcms2-2.7.tar.gz"
- #"http://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz"
- #"http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
- #"http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2"
- #"http://cairographics.org/releases/pixman-0.32.8.tar.gz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/glib/2.46/glib-2.46.0.tar.xz"
- #"http://downloads.sourceforge.net/openjpeg.mirror/openjpeg-1.5.2.tar.gz"
- #"http://poppler.freedesktop.org/poppler-0.37.0.tar.xz"
- #"http://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2"
- #"http://downloads.sourceforge.net/hdparm/hdparm-9.48.tar.gz"
- #"http://downloads.sourceforge.net/infozip/unzip60.tar.gz"
- #"ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz"
- #"ftp://ftp.gnu.org/pub/gnu/cpio/cpio-2.12.tar.bz2"
- #"http://downloads.sourceforge.net/p7zip/p7zip_9.38.1_src_all.tar.bz2"
- #"ftp://space.mit.edu/pub/davis/slang/v2.2/slang-2.2.4.tar.bz2"
- #"ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.14.tar.xz"
- #"http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.8.0.51/OpenJDK-1.8.0.51-x86_64-bin.tar.xz"
- #"ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.5.2.tar.bz2"
- #"ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-util-1.5.4.tar.bz2" 
- #"https://www.sqlite.org/2015/sqlite-autoconf-3081101.tar.gz"
- #"http://www.apache.org/dist/subversion/subversion-1.9.2.tar.bz2"
- #"http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz"
- #"ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz" 
- #"https://download.samba.org/pub/samba/stable/samba-4.3.0.tar.gz"
- #"http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz"
- #"http://www.carisma.slowglass.com/~tgr/libnl/files/libnl-3.2.25.tar.gz"
- #"http://hostap.epitest.fi/releases/wpa_supplicant-2.4.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/systemd/libpcap-1.7.3-enable_bluetooth-1.patch"
- #"http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
- #"http://www.tcpdump.org/release/tcpdump-4.7.4.tar.gz"
- #"http://www.libarchive.org/downloads/libarchive-3.1.2.tar.gz"
- #"http://www.cmake.org/files/v3.3/cmake-3.3.2.tar.gz"
- #"http://www.cpan.org/authors/id/E/ET/ETHER/URI-1.69.tar.gz"
- #"http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
- #"http://www.freedesktop.org/software/libevdev/libevdev-1.4.4.tar.xz"
- #"ftp://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.xz"
- #"X11NOW"
+ "http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz"
+ "ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.7.tar.gz"
+ "ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz"
+ "https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz"
+ "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.5.tar.xz"
+ "ftp://ftp.gnu.org/gnu/wget/wget-1.16.3.tar.gz"
+ "ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
+ "ftp://ftp.netfilter.org/pub/iptables/iptables-1.4.21.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.20.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.6.4.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.3.0.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.3.3.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/npth/npth-1.2.tar.bz2"
+ "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
+ "ftp://ftp.gnu.org/pub/gnu/ed/ed-1.9.tar.gz"
+ "ftp://anduin.linuxfromscratch.org/BLFS/svn/p/popt-1.16.tar.gz"
+ "ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
+ "http://pkgs.fedoraproject.org/repo/pkgs/expat/expat-2.1.0.tar.gz/dd7dab7a5fea97d2a6a43f511449b7cd/expat-2.1.0.tar.gz"  
+ "https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tar.xz"
+ "https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz"
+ "ftp://xmlsoft.org/libxml2/libxml2-2.9.2.tar.gz"
+ "ftp://xmlsoft.org/libxslt/libxslt-1.1.28.tar.gz"
+ "http://ftp.acc.umu.se/pub/gnome/sources/glib/2.46/glib-2.46.1.tar.xz"
+ "ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz"
+ "https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.4.0.tar.xz"
+ "ftp://ftp.x.org/pub/individual/lib/libpciaccess-0.13.4.tar.bz2"
+ "http://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2"
+ "http://downloads.sourceforge.net/libusb/libusb-compat-0.1.5.tar.bz2"
+ "ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-008.tar.xz"
+ "http://curl.haxx.se/download/curl-7.45.0.tar.lzma"
+ "ftp://ftp.kernel.org/pub/software/scm/git/git-2.6.1.tar.xz"
+ "https://pypi.python.org/packages/source/s/setuptools/setuptools-17.1.1.tar.gz"
+ "https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz"
+ "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
+ "https://pypi.python.org/packages/source/M/Mako/Mako-1.0.2.tar.gz"
+ "ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz"
+ "ftp://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
+ "http://downloads.sourceforge.net/hunspell/hunspell-1.3.3.tar.gz"
+ "http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz"
+ "http://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.3.3.tar.gz"
+ "http://www.nasm.us/pub/nasm/releasebuilds/2.11.08/nasm-2.11.08.tar.xz"
+ "http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.4.2.tar.gz"
+ "http://downloads.sourceforge.net/libpng-apng/libpng-1.6.18-apng.patch.gz"
+ "http://downloads.sourceforge.net/libpng/libpng-1.6.18.tar.xz"
+ "ftp://ftp.remotesensing.org/libtiff/tiff-4.0.6.tar.gz"
+ "http://downloads.sourceforge.net/giflib/giflib-5.1.1.tar.bz2"
+ "http://downloads.sourceforge.net/project/lcms/lcms/2.7/lcms2-2.7.tar.gz"
+ "http://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz"
+ "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
+ "http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2"
+ "http://cairographics.org/releases/pixman-0.32.8.tar.gz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/glib/2.46/glib-2.46.0.tar.xz"
+ "http://downloads.sourceforge.net/openjpeg.mirror/openjpeg-1.5.2.tar.gz"
+ "http://poppler.freedesktop.org/poppler-0.37.0.tar.xz"
+ "http://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2"
+ "http://downloads.sourceforge.net/hdparm/hdparm-9.48.tar.gz"
+ "http://downloads.sourceforge.net/infozip/unzip60.tar.gz"
+ "ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz"
+ "ftp://ftp.gnu.org/pub/gnu/cpio/cpio-2.12.tar.bz2"
+ "http://downloads.sourceforge.net/p7zip/p7zip_9.38.1_src_all.tar.bz2"
+ "ftp://space.mit.edu/pub/davis/slang/v2.2/slang-2.2.4.tar.bz2"
+ "ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.14.tar.xz"
+ "http://anduin.linuxfromscratch.org/files/BLFS/OpenJDK-1.8.0.51/OpenJDK-1.8.0.51-x86_64-bin.tar.xz"
+ "ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.5.2.tar.bz2"
+ "ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-util-1.5.4.tar.bz2" 
+ "https://www.sqlite.org/2015/sqlite-autoconf-3081101.tar.gz"
+ "http://www.apache.org/dist/subversion/subversion-1.9.2.tar.bz2"
+ "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz"
+ "ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz" 
+ "https://download.samba.org/pub/samba/stable/samba-4.3.0.tar.gz"
+ "http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz"
+ "http://www.carisma.slowglass.com/~tgr/libnl/files/libnl-3.2.25.tar.gz"
+ "http://hostap.epitest.fi/releases/wpa_supplicant-2.4.tar.gz"
+ "http://www.linuxfromscratch.org/patches/blfs/systemd/libpcap-1.7.3-enable_bluetooth-1.patch"
+ "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
+ "http://www.tcpdump.org/release/tcpdump-4.7.4.tar.gz"
+ "http://www.libarchive.org/downloads/libarchive-3.1.2.tar.gz"
+ "http://www.cmake.org/files/v3.3/cmake-3.3.2.tar.gz"
+ "http://www.cpan.org/authors/id/E/ET/ETHER/URI-1.69.tar.gz"
+ "http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+ "http://www.freedesktop.org/software/libevdev/libevdev-1.4.4.tar.xz"
+ "ftp://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.xz"
+ "X11NOW"
+);
+
+downloadliste=(
  "http://cairographics.org/releases/cairo-1.14.2.tar.xz"
- "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.4.tar.bz2"
- #"http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
- #"http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.15.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.28.tar.xz"
- #"http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
- #"ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.0.29.tar.bz2"
- #"ftp://downloads.xiph.org/pub/xiph/releases/ogg/libogg-1.3.2.tar.xz"
- #"http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz"
- #"ftp://downloads.xiph.org/pub/xiph/releases/flac/flac-1.3.1.tar.xz"
- #"http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.25.tar.gz"
- #"http://www.mega-nerd.com/SRC/libsamplerate-0.1.8.tar.gz"
- #"ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.0.29.tar.bz2"
- #"ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.0.29.tar.bz2"
- #"ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.0.28.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz"
- #"http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.4.tar.gz"
- #"http://jpj.net/~trevor/aumix/releases/aumix-2.9.1.tar.bz2"
- #"http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz"
- #"http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.4.0.tar.bz2"
- #"http://www.libsdl.org/release/SDL-1.2.15.tar.gz"
- #"https://github.com/taglib/taglib/releases/download/v1.9.1/taglib-1.9.1.tar.gz"
- #"http://download.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20150923-2245.tar.bz2"
- #"http://downloads.sourceforge.net/lame/lame-3.99.5.tar.gz"
- #"http://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz"
- #"http://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
- #"http://download.videolan.org/libdvdcss/1.3.0/libdvdcss-1.3.0.tar.bz2"
- #"http://download.videolan.org/videolan/libdvdread/5.0.3/libdvdread-5.0.3.tar.bz2"
- #"http://download.videolan.org/videolan/libdvdnav/5.0.3/libdvdnav-5.0.3.tar.bz2"
- #"ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz"
- #"http://www.mpg123.de/download/mpg123-1.22.4.tar.bz2"
- #"http://dl.matroska.org/downloads/libebml/libebml-1.3.1.tar.bz2"
- #"http://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.2.tar.bz2"
- ############## openssl muss neu installiert werden, danach klappt es mit qt und ruby
- #"ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
- #"http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.xz"
- #"http://downloads.sourceforge.net/boost/boost_1_59_0.tar.bz2" 
- #"https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-8.4.0.tar.xz"
- #"ftp://ftp.videolan.org/pub/videolan/libaacs/0.8.1/libaacs-0.8.1.tar.bz2"
- #"http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar"
- #"http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz"
- #"https://archive.apache.org/dist/ant/source/apache-ant-1.9.6-src.tar.bz2"
- #"ftp://ftp.videolan.org/pub/videolan/libbluray/0.8.1/libbluray-0.8.1.tar.bz2"
- #"http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.gz"
- #"http://ffmpeg.org/releases/ffmpeg-snapshot-git.tar.bz2"
- #"ftp://ftp.mplayerhq.hu/MPlayer/releases/mplayer-checkout-snapshot.tar.bz2"
- #"http://linuxtv.org/downloads/legacy/linuxtv-dvb-apps-1.1.1.tar.gz"
- #"http://downloads.sourceforge.net/cdrdao/cdrdao-1.2.3.tar.bz2"
- #"http://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2"
- #"http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz" 
+ "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.5.tar.bz2"
+ "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
+ "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
+ "http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.15.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.28.tar.xz"
+ "http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
+ "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.0.29.tar.bz2"
+ "ftp://downloads.xiph.org/pub/xiph/releases/ogg/libogg-1.3.2.tar.xz"
+ "http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz"
+ "ftp://downloads.xiph.org/pub/xiph/releases/flac/flac-1.3.1.tar.xz"
+ "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.25.tar.gz"
+ "http://www.mega-nerd.com/SRC/libsamplerate-0.1.8.tar.gz"
+ "ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.0.29.tar.bz2"
+ "ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.0.29.tar.bz2"
+ "ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.0.28.tar.bz2"
+ "ftp://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz"
+ "http://downloads.sourceforge.net/opencore-amr/fdk-aac-0.1.4.tar.gz"
+ "http://jpj.net/~trevor/aumix/releases/aumix-2.9.1.tar.bz2"
+ "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz"
+ "http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.4.0.tar.bz2"
+ "http://www.libsdl.org/release/SDL-1.2.15.tar.gz"
+ "https://github.com/taglib/taglib/releases/download/v1.9.1/taglib-1.9.1.tar.gz"
+ "http://download.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20150923-2245.tar.bz2"
+ "http://downloads.sourceforge.net/lame/lame-3.99.5.tar.gz"
+ "http://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz"
+ "http://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
+ "http://download.videolan.org/libdvdcss/1.3.0/libdvdcss-1.3.0.tar.bz2"
+ "http://download.videolan.org/videolan/libdvdread/5.0.3/libdvdread-5.0.3.tar.bz2"
+ "http://download.videolan.org/videolan/libdvdnav/5.0.3/libdvdnav-5.0.3.tar.bz2"
+ "ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz"
+ "http://www.mpg123.de/download/mpg123-1.22.4.tar.bz2"
+ "http://dl.matroska.org/downloads/libebml/libebml-1.3.1.tar.bz2"
+ "http://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.2.tar.bz2"
+ ############# openssl muss neu installiert werden, danach klappt es mit qt und ruby
+ "ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
+ "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.xz"
+ "http://downloads.sourceforge.net/boost/boost_1_59_0.tar.bz2" 
+ "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-8.4.0.tar.xz"
+ "ftp://ftp.videolan.org/pub/videolan/libaacs/0.8.1/libaacs-0.8.1.tar.bz2"
+ "http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar"
+ "http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz"
+ "https://archive.apache.org/dist/ant/source/apache-ant-1.9.6-src.tar.bz2"
+ "ftp://ftp.videolan.org/pub/videolan/libbluray/0.9.0/libbluray-0.9.0.tar.bz2"
+ "http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.gz"
+ "http://ffmpeg.org/releases/ffmpeg-snapshot-git.tar.bz2"
+ "ftp://ftp.mplayerhq.hu/MPlayer/releases/mplayer-checkout-snapshot.tar.bz2"
+ "http://linuxtv.org/downloads/legacy/linuxtv-dvb-apps-1.1.1.tar.gz"
+ "http://downloads.sourceforge.net/cdrdao/cdrdao-1.2.3.tar.bz2"
+ "http://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2"
+ "http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz" 
+);
+
+downloadliste=(
+
+ # FIREFOX
+ #"http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
+ #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
+ #"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
+ #"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
+ #"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"  
+ #"http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.4.5.tar.xz"
+ #"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
+ #"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
+ #"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
+ "https://ftp.mozilla.org/pub/firefox/releases/41.0.1/source/firefox-41.0.1.source.tar.xz"
+ 
+ 
  #"http://downloads.webmproject.org/releases/webp/libwebp-0.4.3.tar.gz"
  #"http://www.linuxfromscratch.org/patches/blfs/svn/jasper-1.900.1-security_fixes-2.patch"
  #"http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-1.900.1.zip"
- #"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
- #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
+ ############"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
+ 
  #"http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz"
  #"http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch"
  #"ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
@@ -340,18 +364,18 @@ downloadliste=(
  #"ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.42.tgz"
  #"http://www.linuxfromscratch.org/patches/blfs/svn/pcre-8.37-upstream_fixes-1.patch"
  #"ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2"
- #"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
+ ##############"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
  #"http://libndp.org/files/libndp-1.5.tar.gz"
  #"ftp://ftp.gnome.org/pub/gnome/sources/libgudev/230/libgudev-230.tar.xz"
- #"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
- #"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz"
+ #################"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
+ #################"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
+ #################"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz"
  #"ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.0/NetworkManager-1.0.6.tar.xz"
  
- #"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"
+ ##############"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
+ ##############"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
+ ##############"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
+ ##############"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"
  #"http://download.videolan.org/vlc/2.2.1/vlc-2.2.1.tar.xz"
  #"http://kcat.strangesoft.net/openal-releases/openal-soft-1.16.0.tar.bz2" 
  #"http://ftp.mozilla.org/pub/mozilla.org/js/mozjs17.0.0.tar.gz"
@@ -398,7 +422,7 @@ downloadliste=(
  #"KDENOW" 
 );
 
-if test $1 = checknew
+if test $1 = check
 then
 for((i=0;i<${#downloadliste[*]};i++)); do
   set +e
@@ -458,6 +482,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
+  
      3.2.6)                     cd eigen-eigen-c58038c56923; mkdir build ; cd build ; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make ; make install 
      				cd /BLFS/SOURCE ; rm -rf eigen-eigen-c58038c56923 ; continue  ;; 
      JSON-2.90)			perl Makefile.PL ; make ; make install 
@@ -509,6 +534,11 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
   case "$name" in 
+     firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
+                   SHELL=/bin/sh ../configure --prefix=/opt/firefox --with-system-zlib --with-system-jpeg --enable-svg --enable-strip --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
+                   SHELL=/bin/sh make -j 6 ; SHELL=/bin/sh make install
+                   ;;
+     libpng)       gzip -cd ../libpng-1.6.18-apng.patch.gz | patch -p1 ; config ;;
      ninja)        ./bootstrap.py ; cp ninja /usr/sbin/ ;;
      gdb)          config '--with-system-readline' ;;
      signon)       qmake PREFIX=/opt/qt5 LIBDIR=/opt/qt5/lib ; make -j5; make install ;;
@@ -1336,7 +1366,9 @@ then
 wget ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$FVERSION/source/firefox-$FVERSION.source.tar.bz2
 cd mozilla-*
 PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:/opt/firefox-$FVERSION/lib/pkgconfig" \
-./configure --prefix=/opt/firefox-$FVERSION --with-system-zlib --with-system-jpeg --enable-system-cairo --enable-svg --enable-strip --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter
+./configure --prefix=/opt/firefox-$FVERSION --with-system-zlib --with-system-jpeg --enable-system-cairo  \
+  --enable-svg --enable-strip --disable-tests --disable-installer --disable-accessibility --enable-xinerama \
+  --enable-application=browser --disable-crashreporter
 sed -i 's@$(LIBS_DIR)@$(LIBS_DIR) -L/usr/X11R6/lib -lXrender -lX11@g' layout/build/Makefile
 make -j $J
 make install
