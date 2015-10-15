@@ -107,6 +107,7 @@ test -e xterm-320.tar.gz ||  (wget -c ftp://invisible-island.net/xterm/xterm-320
 test -e glamor-git.tar.gz || (git clone git://anongit.freedesktop.org/git/xorg/driver/glamor ; tar cvfz glamor-git.tar.gz glamor ; rm -rf glamor/ )
 wget --no-check-certificate -c https://github.com/anholt/libepoxy/releases/download/v1.3.1/libepoxy-1.3.1.tar.bz2
 wget -c http://www.x.org/releases/individual/driver/xf86-video-intel-2.99.917.tar.bz2
+test -e amiwm-0.21pl2.tar.gz || (wget -c ftp://ftp.lysator.liu.se/pub/X11/wm/amiwm/amiwm0.21pl2.tar.gz ; mv amiwm0.21pl2.tar.gz amiwm-0.21pl2.tar.gz)
 exit
 fi
 
@@ -341,6 +342,9 @@ CONFIG
 plist3=(
 twm
 xinit
+amiwm
+CONFIG2
+#NVIDIA
 )
 
 
@@ -370,25 +374,27 @@ for paket in ${liste[@]}
   set -e
 
   case $paket in
+  amiwm)                config=" --prefix=/opt/amiwm " ;;
+  NVIDIA)		chmod 744 NVIDIA-Linux-x86_64-355.11.run
+  			./NVIDIA-Linux-x86_64-355.11.run -x
+  			cd NVIDIA-Linux-x86_64-355.11
+  			
+  			;;
+  CONFIG2)		cp /BLFS/EXTRA/xinitrc /etc/X11/xinit/xinitrc
+  			;;
   CONFIG)		mkdir /etc/X11
   			ln -s /usr/X11/include/X11 /usr/include/X11
   			cp -a /usr/include/GL/* /usr/X11/include/GL/
   			rm -rf /usr/include/GL
   			ln -s /usr/X11/include/GL /usr/include/GL  			
-  			#ln -svt /etc/X11 $XORG_PREFIX/lib/X11/{fs,lbxproxy,proxymngr,rstart}   
-     			#ln -svt /etc/X11 $XORG_PREFIX/lib/X11/{app-defaults,xkb}
-     			#ln -svt /etc/X11 $XORG_PREFIX/lib/X11/{xdm,xinit,xserver,xsm}
-     			cp ../EXTRA/xorg.conf    /etc/X11/
+  			cp ../EXTRA/xorg.conf    /etc/X11/
   			cp ../EXTRA/xmodmap.map  /etc/X11/
-  			mkdir /etc/X11/xinit
-			cp ../EXTRA/xinitrc /etc/X11/xinit/xinitrc
-
+  			
   			# wegen pulseaudio 6.0
   			ln -s /usr/X11/include/xcb /usr/include/xcb
-  			
+  			# Alias in xterm nutzen
   			ln -s /etc/bashrc /root/.bashrc
-
-  			#ln -s /usr/X11/share/X11/xkb /usr/X11/lib/X11/xkb
+  			###ln -s /usr/X11/share/X11/xkb /usr/X11/lib/X11/xkb
   			ln -s /usr/X11/lib/fonts/X11  /usr/X11/lib/X11/fonts
   			cp -a /usr/share/fonts/* /usr/X11/lib/X11/fonts/
   			rm -rf /usr/share/fonts

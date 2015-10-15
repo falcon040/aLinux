@@ -1,8 +1,9 @@
 #!/bin/sh
 
-/usr/X11/bin/xmodmap /etc/xmodmap.map
+/usr/X11/bin/xmodmap /etc/X11/xmodmap.map
 
-twm &
-xterm -geometry 80x50+494+51 &
-xterm -geometry 80x20+494-0 &
-xterm -geometry 80x66+0+0 -name login
+#twm &
+/opt/amiwm/bin/amiwm &
+#xterm -geometry 80x50+494+51 &
+#xterm -geometry 80x20+494-0 &
+xterm -geometry 100x50+200+200 -name login

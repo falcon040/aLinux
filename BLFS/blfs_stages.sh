@@ -535,8 +535,9 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   
   case "$name" in 
      firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
-                   SHELL=/bin/sh ../configure --prefix=/opt/firefox --with-system-zlib --with-system-jpeg --enable-svg --enable-strip --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
+                   CXXFLAGS="-O3 -march=ivybridge -pipe " SHELL=/bin/sh ../configure --prefix=/opt/firefox --disable-optimize --with-system-zlib --with-system-jpeg --enable-svg --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
                    SHELL=/bin/sh make -j 6 ; SHELL=/bin/sh make install
+                   ln -s /opt/firefox/bin/firefox /usr/bin/
                    ;;
      libpng)       gzip -cd ../libpng-1.6.18-apng.patch.gz | patch -p1 ; config ;;
      ninja)        ./bootstrap.py ; cp ninja /usr/sbin/ ;;
