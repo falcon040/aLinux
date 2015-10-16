@@ -332,7 +332,7 @@ downloadliste=(
 
 downloadliste=(
 
- # FIREFOX
+ # FIREFOX 41.0.1
  #"http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
  #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
  #"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
@@ -345,7 +345,7 @@ downloadliste=(
  #"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
  #"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
  #"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
- "https://ftp.mozilla.org/pub/firefox/releases/41.0.1/source/firefox-41.0.1.source.tar.xz"
+ #"https://ftp.mozilla.org/pub/firefox/releases/41.0.1/source/firefox-41.0.1.source.tar.xz"
  
  
  #"http://downloads.webmproject.org/releases/webp/libwebp-0.4.3.tar.gz"
@@ -387,34 +387,34 @@ downloadliste=(
  #"http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
  #"https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz"
  #"http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
- #"http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
- #"http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
- #"https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
- #"http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
- #"https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
- #"https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
- #"ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
- #"http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
- #"http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
+ "http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
+ "http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
+ "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
+ "http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
+ "https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
+ "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
+ "http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
+ "ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
+ "http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
+ "http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
 
  ##### Da haben einige Pakete Kreisfoermige Abhaengigkeiten
- #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
  
- #"http://www.exiv2.org/exiv2-0.25.tar.gz"
- #"http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
- #"http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
+ "http://www.exiv2.org/exiv2-0.25.tar.gz"
+ "http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
+ "http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
  ############ QT 5.5.0
- #"http://download.qt.io/archive/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
- #"https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
- #"http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
+ "http://download.qt.io/archive/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
+ "https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
+ "http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
  ############ KDE5
  #"https://martine.github.io/ninja/ninja-1.6.tar.gz"
  #"telepathy-glib-0.24.1.tar.gz"

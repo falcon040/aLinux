@@ -322,6 +322,8 @@ xkeyboard-config
 libxkbcommon
 mtdev
 libinput
+printproto
+libXp
 FONTCONFIG
 libepoxy
 xorg-server

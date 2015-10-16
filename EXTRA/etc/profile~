@@ -17,4 +17,5 @@ export LANGUAGE=de_DE.utf8
 
 alias grep="grep --color"
 alias ll="ls -al --color"
-
+export CFLAGS="-O2 -s -march=ivybridge -pipe  "
+export CXXFLAGS="-O2 -s -march=ivybridge -pipe  "
