@@ -21,7 +21,10 @@ mkdir /dev/shm /dev/pts
 mount -vt devpts   devpts /dev/pts -o gid=5,mode=620
 
 mount -n  tmpfs    /var -ttmpfs -o size=32m
-mkdir /var/empty /var/lib /var/lock /var/log /var/mail /var/run /var/spool /var/lib/sshd /var/lib/nfs
+mkdir /var/empty /var/lib /var/lock /var/log /var/mail /var/run /var/spool /var/lib/sshd /var/lib/nfs /var/lib/dbus /var/run/dbus
+
+chown messagebus:messagebus /var/run/dbus
+
 ln -s /tmp /var/tmp
 #check!
 #touch /var/lib/nfs/etab

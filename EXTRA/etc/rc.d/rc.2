@@ -1,11 +1,11 @@
 #!/bin/sh
 
 echo "Setting up Networking..."
-#ip addr add 192.168.40.84/24 dev eth2
-#ip link set eth2 up
+ip addr add 192.168.206.42/24 dev eth0
+ip link set eth0 up
 #ip link set eth2 mtu 1200 
 
-#ip route add default via 192.168.40.70 dev eth2
+ip route add default via 192.168.206.41 dev eth0
 #ip route add 192.168.33.10/32 via 192.168.40.74
 
 
@@ -52,8 +52,8 @@ echo "Linking /dev/cdrom to /dev/sr0..."
 #/usr/sbin/cdctl -b1
 
 # Soundeinstellungen ...
-#echo "Setting Sound Volume..."
-#/usr/sbin/aumix -v 100 -w 20 -W 100 
+echo "Setting Sound Volume..."
+/usr/bin/aumix -v 100 -w 20 -W 100 
 
 # nvidia kernel modul laden
 # modprobe nvidia
@@ -73,10 +73,10 @@ echo "Linking /dev/cdrom to /dev/sr0..."
 # NFS Datenbank updaten !
 #/usr/sbin/exportfs -ar
 
-#echo "Starting Dbus..."
-#mkdir /var/lib/dbus
-#dbus-uuidgen > /var/lib/dbus/machine-id
-##dbus-launch > /dev/null
+echo "Starting Dbus..."
+dbus-uuidgen > /var/lib/dbus/machine-id
+dbus-daemon --system > /dev/null
+###dbus-launch > /dev/null
 
 # Apple Keyboard F-Tasten
 test -e /sys/module/hid_apple/parameters/fnmode && ( echo 2 > /sys/module/hid_apple/parameters/fnmode ;echo "Apple Keyboard F-Keys On...")

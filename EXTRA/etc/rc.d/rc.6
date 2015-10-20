@@ -1,12 +1,5 @@
 #!/bin/sh
 
-#echo "Deleting all tmp files..."
-#/bin/rm -rf /var/log/*
-#/bin/rm -rf /tmp/.??* /tmp/*
-#/bin/rm -rf /var/run/*
-#/bin/rm -rf /var/spool/cups/*
-
-/bin/sync
 echo "Sending all processes the TERM signal..."
 /sbin/killall5 -15
 sleep 1
@@ -14,17 +7,6 @@ sleep 1
 echo "Sending all processes the KILL signal..."
 /sbin/killall5 -9
 sleep 1
-
-
-#if test -e /var/run/gpm.pid
-#then
-#  /bin/rm /var/run/gpm.pid
-#fi
-
-#if test -e /root/.licq/licq.pid
-#then
-#  /bin/rm  /root/.licq/licq.pid
-#fi
 
 /bin/sync
 

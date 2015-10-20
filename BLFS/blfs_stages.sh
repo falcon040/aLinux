@@ -387,34 +387,38 @@ downloadliste=(
  #"http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
  #"https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz"
  #"http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
- "http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
- "http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
- "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
- "http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
- "https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
- "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
- "http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
- "ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
- "http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
- "http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
+ #"http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
+ #"http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
+ #"https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
+ #"http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
+ #"https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
+ #"https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
+ #"http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
+ #"ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
+ #"http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
+ #"http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
 
  ##### Da haben einige Pakete Kreisfoermige Abhaengigkeiten
- "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
  
- "http://www.exiv2.org/exiv2-0.25.tar.gz"
- "http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
- "http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
+ #"http://www.exiv2.org/exiv2-0.25.tar.gz"
+ #"http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
+ #"http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
+ #"http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
+ #"http://fribidi.org/download/fribidi-0.19.7.tar.bz2"
+ #"http://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.0.tar.gz"
+ 
  ############ QT 5.5.0
- "http://download.qt.io/archive/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
- "https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
- "http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
+ #"http://download.qt.io/archive/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
+ #"https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
+ #"http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
  ############ KDE5
  #"https://martine.github.io/ninja/ninja-1.6.tar.gz"
  #"telepathy-glib-0.24.1.tar.gz"
@@ -482,7 +486,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
-  
+     dbus-python-1.2.0)         name="dbus-python" ;;
      3.2.6)                     cd eigen-eigen-c58038c56923; mkdir build ; cd build ; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make ; make install 
      				cd /BLFS/SOURCE ; rm -rf eigen-eigen-c58038c56923 ; continue  ;; 
      JSON-2.90)			perl Makefile.PL ; make ; make install 
@@ -534,6 +538,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
   case "$name" in 
+     LuaJIT)       sed -i 's@export PREFIX= /usr/local@export PREFIX= /usr@g' Makefile ; make ; make install;;
      firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
                    CXXFLAGS="-O3 -march=ivybridge -pipe " SHELL=/bin/sh ../configure --prefix=/opt/firefox --disable-optimize --with-system-zlib --with-system-jpeg --enable-svg --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
                    SHELL=/bin/sh make -j 6 ; SHELL=/bin/sh make install
@@ -542,7 +547,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      libpng)       gzip -cd ../libpng-1.6.18-apng.patch.gz | patch -p1 ; config ;;
      ninja)        ./bootstrap.py ; cp ninja /usr/sbin/ ;;
      gdb)          config '--with-system-readline' ;;
-     signon)       qmake PREFIX=/opt/qt5 LIBDIR=/opt/qt5/lib ; make -j5; make install ;;
+     signond)      qmake PREFIX=/opt/qt5 LIBDIR=/opt/qt5/lib ; make -j5; make install ;;
      accounts)     qmake PREFIX=/opt/qt5 LIBDIR=/opt/qt5/lib ; make -j5; make install ;;
      exiv2)	   config '--enable-video --enable-webready  --without-ssh ' ;; 
      cyrus)        autoreconf -fi ; config '--sysconfdir=/etc --enable-auth-sasldb --with-dbpath=/var/lib/sasl/sasldb2 -with-saslauthd=/var/run/saslauthd '  ;;
@@ -727,6 +732,9 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      URI)	   perl Makefile.PL ; make ; make install ;;
      XML)          perl Makefile.PL ; make ; make install ;;
      #Python2/3 Modules 
+     dbus-python)  mkdir python2 ; pushd python2 ; PYTHON=/usr/bin/python  ../configure --prefix=/usr ; make ; popd 
+                   mkdir python3 ; pushd python3 ; PYTHON=/usr/bin/python3 ../configure --prefix=/usr ; make ; popd
+                   make -C python2 install ; make -C python3 install ;;
      bzr)          python setup.py install --optimize=1 ;;
      setuptools)   python setup.py install --optimize=1 ; python3 setup.py install --optimize=1 ;;
      pip)          python setup.py install --optimize=1 ; python3 setup.py install --optimize=1 ;;

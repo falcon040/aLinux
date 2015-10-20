@@ -28,30 +28,21 @@ extra=$1
 
 
 downloadliste=(
- #"http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
- #"http://fribidi.org/download/fribidi-0.19.7.tar.bz2"
-
- # pulseaudio
- #"http://downloads.us.xiph.org/releases/speex/speex-1.2rc2.tar.gz"
- #"http://downloads.us.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz"
- #"https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz"
- #"http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
- 
-
  #"https://github.com/bulletphysics/bullet3/archive/2.83.6.tar.gz"
-  "http://download.videolan.org/vlc/2.2.1/vlc-2.2.1.tar.xz"
 
- "http://download.enlightenment.org/rel/libs/efl/efl-1.15.2.tar.gz"
- "http://download.enlightenment.org/rel/libs/emotion_generic_players/emotion_generic_players-1.15.0.tar.gz"
- "http://download.enlightenment.org/rel/libs/evas_generic_loaders/evas_generic_loaders-1.15.0.tar.gz"
- "http://download.enlightenment.org/rel/libs/elementary/elementary-1.15.2.tar.gz"
- "http://download.enlightenment.org/rel/bindings/python/python-efl-1.15.0.tar.gz"
+ #"http://download.enlightenment.org/rel/libs/efl/efl-1.15.2.tar.gz"
+ #"http://download.enlightenment.org/rel/libs/emotion_generic_players/emotion_generic_players-1.15.0.tar.gz"
+ #"http://download.enlightenment.org/rel/libs/evas_generic_loaders/evas_generic_loaders-1.15.0.tar.gz"
+ #"http://download.enlightenment.org/rel/libs/elementary/elementary-1.15.2.tar.gz"
+ #"http://download.enlightenment.org/rel/bindings/python/python-efl-1.15.0.tar.gz"
  
- "http://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.19.12.tar.gz"
- "http://download.enlightenment.org/rel/apps/terminology/terminology-0.9.1.tar.gz"
- "http://download.enlightenment.org/rel/apps/rage/rage-0.1.4.tar.gz"
- "http://download.enlightenment.org/rel/apps/econnman/econnman-1.1.tar.gz"
- "http://download.enlightenment.org/rel/apps/epour/epour-0.6.0.tar.gz"
+ #"http://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.19.12.tar.gz"
+ #"http://download.enlightenment.org/rel/apps/terminology/terminology-0.9.1.tar.gz"
+ #"http://download.enlightenment.org/rel/apps/rage/rage-0.1.4.tar.gz"
+ #"http://download.enlightenment.org/rel/apps/econnman/econnman-1.1.tar.gz"
+ #"https://download.enlightenment.org/rel/apps/enlightenment/desksanity-1.0.2.tar.xz"
+ #"http://download.enlightenment.org/rel/apps/epour/epour-0.6.0.tar.gz"
+ "https://download.enlightenment.org/rel/apps/eflete/eflete-0.5.0.tar.gz"
 );
 
 if test $1 = check
@@ -102,10 +93,15 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   test -e $filename || /usr/bin/wget --no-check-certificate -c $paket
   tar  xvf $filename
   cd   $ordnerdir
-
+  echo  Name:  $name
+  read
   set -e
   case "$name" in 
-     vlc)               config '--disable-lua --disable-avcodec --disable-swscale --disable-a52' ;;
+  
+     epour)		python setup.py install --optimize=1
+     			python3 setup.py install --optimize=1 ;;  
+     python)            python setup.py install --optimize=1
+                        python3 setup.py install --optimize=1 ;;
      efl)               config 
      			ln -sf /opt/enlightment/share/dbus-1/services/org.enlightenment.Ethumb.service /usr/share/dbus-1/services/org.enlightenment.Ethumb.service
      			;;
@@ -114,10 +110,6 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      			sed -i 's@-O3@-O3 -L/usr/X11/lib @g'  examples/ExampleBrowser/CMakeFiles/App_ExampleBrowser.dir/link.txt  
      			make -j5 ; make install ; ordnerdir="bullet3-2.83.6" 
      			;;
-     json) 		sed -i s/-Werror// Makefile.in    ; ./configure --prefix=/opt/enlightment --disable-static ; make ; make install ;;
-     pulseaudio)	config '--sysconfdir=/etc --localstatedir=/var --without-caps --disable-bluez4 --disable-rpath ' ;;
-     LuaJIT)		sed -i 's@export PREFIX= /usr/local@export PREFIX= /opt/enlightment@g' Makefile ; make ; make install;;
-
      #efl)	;;
 
      *)        	config
