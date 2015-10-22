@@ -1,0 +1,15 @@
+FastQuit Off
+SizeBorder None
+AutoRaise Off
+IconPalette MagicWB
+DefaultIcon "def_tool.info"
+CustomIconsOnly Off
+ShortLabelIcons Off
+TitlebarClock On
+ForceMove always
+TitleClockFormat "%c"
+Screen "Workbench Screen1"
+Screen "Workbench Screen2"
+Module "Keyboard" "Meta<M>:all:rotatescreens"
+ToolItem "Firefox" "firefox" [""]
+ToolItem "XTerm" "xterm" [""]

@@ -44,7 +44,9 @@ if test $1 = stage3
 then
 
 tar xvf ../EXTRA/certs.tar.gz
-mv 
+cp -a etc/ssl/certs/* /etc/ssl/certs/
+rm -rf etc
+ 
 
 cat > /root/.gitconfig << "EOF"
 [url "git://anongit.kde.org/"]

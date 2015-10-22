@@ -17,7 +17,7 @@ extra=$1
 mkdir -v build &&
 cd       build 
 cmake $extra ..
-make -j $J ; make install
+make -j5 ; make install
 }
 
 #Default configure fuer ~70% der Pakete
@@ -119,4 +119,3 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   cd /BLFS/ENLIGHTMENT ; rm -rf $ordnerdir   
 done
 fi
-	

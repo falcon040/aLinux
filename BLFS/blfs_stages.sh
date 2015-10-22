@@ -27,6 +27,12 @@ config1 () {
 extra=$1
 ./configure $extra --disable-static --prefix=/usr && make && make install
 }
+configopt () {
+folder=$1
+./configure --disable-static --prefix=/opt/$folder && sleep 2 && make -j $J && make install
+}
+
+
 
 # Chroot fals Neueinstieg
 if test $1 = chroot
@@ -189,11 +195,12 @@ xmlcatalog --noout --add "rewriteURI" \
 }
     
 downloadliste=(
+ "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
  "http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz"
  "ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.7.tar.gz"
  "ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz"
  "https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz"
- "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.5.tar.xz"
+ "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.6.tar.xz"
  "ftp://ftp.gnu.org/gnu/wget/wget-1.16.3.tar.gz"
  "ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
  "ftp://ftp.netfilter.org/pub/iptables/iptables-1.4.21.tar.bz2"
@@ -212,6 +219,7 @@ downloadliste=(
  "ftp://xmlsoft.org/libxml2/libxml2-2.9.2.tar.gz"
  "ftp://xmlsoft.org/libxslt/libxslt-1.1.28.tar.gz"
  "http://ftp.acc.umu.se/pub/gnome/sources/glib/2.46/glib-2.46.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.8.tar.xz"
  "ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz"
  "https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.4.0.tar.xz"
  "ftp://ftp.x.org/pub/individual/lib/libpciaccess-0.13.4.tar.bz2"
@@ -219,7 +227,7 @@ downloadliste=(
  "http://downloads.sourceforge.net/libusb/libusb-compat-0.1.5.tar.bz2"
  "ftp://ftp.kernel.org/pub/linux/utils/usb/usbutils/usbutils-008.tar.xz"
  "http://curl.haxx.se/download/curl-7.45.0.tar.lzma"
- "ftp://ftp.kernel.org/pub/software/scm/git/git-2.6.1.tar.xz"
+ "ftp://ftp.kernel.org/pub/software/scm/git/git-2.6.2.tar.xz"
  "https://pypi.python.org/packages/source/s/setuptools/setuptools-17.1.1.tar.gz"
  "https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz"
  "https://pypi.python.org/packages/source/M/MarkupSafe/MarkupSafe-0.23.tar.gz"
@@ -240,7 +248,7 @@ downloadliste=(
  "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
  "http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2"
  "http://cairographics.org/releases/pixman-0.32.8.tar.gz"
- "ftp://ftp.gnome.org/pub/gnome/sources/glib/2.46/glib-2.46.0.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/glib/2.46/glib-2.46.1.tar.xz"
  "http://downloads.sourceforge.net/openjpeg.mirror/openjpeg-1.5.2.tar.gz"
  "http://poppler.freedesktop.org/poppler-0.37.0.tar.xz"
  "http://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2"
@@ -258,7 +266,7 @@ downloadliste=(
  "http://www.apache.org/dist/subversion/subversion-1.9.2.tar.bz2"
  "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz"
  "ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.1p1.tar.gz" 
- "https://download.samba.org/pub/samba/stable/samba-4.3.0.tar.gz"
+ "https://download.samba.org/pub/samba/stable/samba-4.3.1.tar.gz"
  "http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz"
  "http://www.carisma.slowglass.com/~tgr/libnl/files/libnl-3.2.25.tar.gz"
  "http://hostap.epitest.fi/releases/wpa_supplicant-2.4.tar.gz"
@@ -274,13 +282,14 @@ downloadliste=(
  "X11NOW"
 );
 
-downloadliste=(
+downloadliste2=(
  "http://cairographics.org/releases/cairo-1.14.2.tar.xz"
  "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.5.tar.bz2"
  "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
  "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.1.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.40/librsvg-2.40.11.tar.xz"
  "http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.15.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.28.tar.xz"
  "http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
@@ -330,8 +339,7 @@ downloadliste=(
  "http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz" 
 );
 
-downloadliste=(
-
+downloadliste3=(
  # FIREFOX 41.0.1
  #"http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
  #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
@@ -408,6 +416,10 @@ downloadliste=(
  #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
  #"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
  
+ # gnome icons + BluefishEditor
+ #"ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
+ "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
+  
  #"http://www.exiv2.org/exiv2-0.25.tar.gz"
  #"http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
  #"http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
@@ -416,7 +428,8 @@ downloadliste=(
  #"http://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.0.tar.gz"
  
  ############ QT 5.5.0
- #"http://download.qt.io/archive/qt/5.5/5.5.0/single/qt-everywhere-opensource-src-5.5.0.tar.xz"
+ #"http://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
+ #"http://download.qt.io/official_releases/qtcreator/3.5/3.5.1/qt-creator-opensource-src-3.5.1.tar.gz"
  #"https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
  #"http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
  ############ KDE5
@@ -497,21 +510,24 @@ for((i=0;i<${#downloadliste[*]};i++)); do
 				make -j 5 ; make install ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;                                                     
      dbus-glib-0.104)           ./configure --prefix=/usr --sysconfdir=/etc --disable-static ; make ; make install  ;;
      docbook-xsl-1.78.1)	docbookxslconfig ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;
-     qt-everywhere-opensource-src-5.5.0)
+     qt-creator-opensource-src-*)
+     				qmake -r
+     				make -j6 ; make install INSTALL_ROOT=/opt/$ordnerdir
+     				cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue
+				;;
+     qt-everywhere-opensource-src-*)
      				export QT5PREFIX=/opt/qt5
-     				mkdir /opt/qt-5.5.0
-     				ln -sfnv qt-5.5.0 /opt/qt5
-     				LIBRARY_PATH=/usr/X11/lib ./configure -reduce-exports -prefix /opt/qt-5.5.0 -sysconfdir /etc/xdg -confirm-license -opensource  \
+     				LIBRARY_PATH=/usr/X11/lib ./configure -reduce-exports -prefix /opt/qt5 -sysconfdir /etc/xdg -confirm-license -opensource  \
      				-v -dbus-linked -openssl-linked -system-harfbuzz -system-sqlite -nomake examples -no-rpath  -optimized-qmake -skip qtwebengine -no-compile-examples
                                 echo "/opt/qt5/lib" >> /etc/ld.so.conf
 				LIBRARY_PATH=/usr/X11/lib make -j $J && make install
 				find $QT5PREFIX/lib/pkgconfig -name "*.pc" -exec perl -pi -e "s, -L$PWD/?\S+,,g" {} \;
 				find $QT5PREFIX -name qt_lib_bootstrap_private.pri -exec sed -i -e "s:$PWD/qtbase:/$QT5PREFIX/lib/:g" {} \; 
      				find $QT5PREFIX -name \*.prl -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \; 
-     				export QT5BINDIR=$QT5PREFIX/bin
-     				for file in moc uic rcc qmake lconvert lrelease lupdate; do
-     				  ln -sfv $QT5BINDIR/$file /usr/bin/$file-qt5
-     				done
+     				#export QT5BINDIR=$QT5PREFIX/bin
+     				#for file in moc uic rcc qmake lconvert lrelease lupdate; do
+     				#  ln -sfv $QT5BINDIR/$file /usr/bin/$file-qt5
+     				#done
      				cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue
      				;;
      apache-ant-1.9.6-src)   	cd apache-ant-*/
@@ -538,6 +554,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
   case "$name" in 
+     bluefish)     configopt $ordnerdir ;;
      LuaJIT)       sed -i 's@export PREFIX= /usr/local@export PREFIX= /usr@g' Makefile ; make ; make install;;
      firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
                    CXXFLAGS="-O3 -march=ivybridge -pipe " SHELL=/bin/sh ../configure --prefix=/opt/firefox --disable-optimize --with-system-zlib --with-system-jpeg --enable-svg --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib

@@ -130,6 +130,8 @@ fi
 if test $1 = stage4
 then
 
+pip install -U Sphinx
+
 ##### Source updaten von git und alles neu compilieren
 cd /opt/kde/sources
 git clone kde:kdesrc-build

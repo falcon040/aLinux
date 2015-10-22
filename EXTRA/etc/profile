@@ -3,18 +3,15 @@ export  PS1="\`hostname\`:\${PWD}>"
 #export PS1="[\u@\h \w]\\$ "
 #export PS1='\u@\h:\w\$ '
 
-export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11/bin:/opt/kde/install/bin:/opt/qt5/bin:/opt/java/bin:/opt/ant/bin
+export PATH=`printf "/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11/bin" ; for file in /opt/*/bin; do if [ -d $file ]; then printf ":"$file ; fi done `
+export PKG_CONFIG_PATH=`printf "/usr/X11/lib/pkgconfig:/usr/lib/pkgconfig" ; for file in /opt/*/lib/pkgconfig; do if [ -d $file ]; then printf ":"$file ; fi done `
 
 export JAVA_HOME=/opt/java
 export QT5DIR=/opt/qt5
-export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 
 export LC_ALL=de_DE.utf8
 export LANG=de_DE.utf8
 export LANGUAGE=de_DE.utf8
 
-#export KDEDIR=/opt/kde
-
 alias grep="grep --color"
 alias ll="ls -al --color"
-
