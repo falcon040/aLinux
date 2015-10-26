@@ -9,6 +9,9 @@ export PKG_CONFIG_PATH=`printf "/usr/X11/lib/pkgconfig:/usr/lib/pkgconfig" ; for
 export JAVA_HOME=/opt/java
 export QT5DIR=/opt/qt5
 
+#Weston tmp
+export XDG_RUNTIME_DIR=/tmp
+
 export LC_ALL=de_DE.utf8
 export LANG=de_DE.utf8
 export LANGUAGE=de_DE.utf8

@@ -376,7 +376,8 @@ for paket in ${liste[@]}
   set -e
 
   case $paket in
-  amiwm)                config=" --prefix=/opt/amiwm " ;;
+  amiwm)                ./configure --prefix=/opt/amiwm  
+		        make ; make install ; cd .. ; rm -rf $paket*/ ; continue  ;;
   NVIDIA)		chmod 744 NVIDIA-Linux-x86_64-355.11.run
   			./NVIDIA-Linux-x86_64-355.11.run -x
   			cd NVIDIA-Linux-x86_64-355.11

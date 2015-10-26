@@ -194,8 +194,7 @@ xmlcatalog --noout --add "rewriteURI" \
                             /etc/xml/catalog
 }
     
-downloadliste=(
- "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
+downloadliste5=(
  "http://ftp.gnu.org/gnu/gmp/gmp-6.0.0a.tar.xz"
  "ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.7.tar.gz"
  "ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz"
@@ -282,9 +281,9 @@ downloadliste=(
  "X11NOW"
 );
 
-downloadliste2=(
+downloadliste=(
  "http://cairographics.org/releases/cairo-1.14.2.tar.xz"
- "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.5.tar.bz2"
+ "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.6.tar.bz2"
  "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
  "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.1.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
@@ -318,13 +317,13 @@ downloadliste2=(
  "http://download.videolan.org/videolan/libdvdnav/5.0.3/libdvdnav-5.0.3.tar.bz2"
  "ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz"
  "http://www.mpg123.de/download/mpg123-1.22.4.tar.bz2"
- "http://dl.matroska.org/downloads/libebml/libebml-1.3.1.tar.bz2"
- "http://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.2.tar.bz2"
+ "http://dl.matroska.org/downloads/libebml/libebml-1.3.3.tar.bz2"
+ "http://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.4.tar.bz2"
  ############# openssl muss neu installiert werden, danach klappt es mit qt und ruby
  "ftp://openssl.org/source/openssl-1.0.2d.tar.gz" 
  "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.xz"
  "http://downloads.sourceforge.net/boost/boost_1_59_0.tar.bz2" 
- "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-8.4.0.tar.xz"
+ "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-8.5.1.tar.xz"
  "ftp://ftp.videolan.org/pub/videolan/libaacs/0.8.1/libaacs-0.8.1.tar.bz2"
  "http://anduin.linuxfromscratch.org/sources/other/junit-4.11.jar"
  "http://hamcrest.googlecode.com/files/hamcrest-1.3.tgz"
@@ -340,98 +339,113 @@ downloadliste2=(
 );
 
 downloadliste3=(
- # FIREFOX 41.0.1
- #"http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
- #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
- #"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
- #"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
- #"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
- #"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"  
- #"http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.4.5.tar.xz"
- #"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
- #"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
- #"https://ftp.mozilla.org/pub/firefox/releases/41.0.1/source/firefox-41.0.1.source.tar.xz"
- 
- 
- #"http://downloads.webmproject.org/releases/webp/libwebp-0.4.3.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/jasper-1.900.1-security_fixes-2.patch"
- #"http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-1.900.1.zip"
+ # FIREFOX 41.0.2
+ "http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
+ "http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
+ "http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
+ "http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
+ "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.6.0.tar.xz"
+ "http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.6.0.tar.xz"
+ "http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.6.0.tar.xz"
+ "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.6.0.tar.xz"  
+ "http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.6.0.tar.xz"
+ "https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
+ "http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
+ "http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
+ "https://ftp.mozilla.org/pub/firefox/releases/41.0.2/source/firefox-41.0.2.source.tar.xz"
+);
+
+
+downloadliste=(
+ "http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
+ "http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
+ "http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
+ "http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2"
+ "http://openbox.org/dist/obconf/obconf-2.0.4.tar.gz"
+);
+
+
+downloadliste1=( 
+# "http://downloads.webmproject.org/releases/webp/libwebp-0.4.3.tar.gz"
+# "http://www.linuxfromscratch.org/patches/blfs/svn/jasper-1.900.1-security_fixes-2.patch"
+# "http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-1.900.1.zip"
  ############"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
  
- #"http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch"
- #"ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
- #"http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip"
- #"http://downloads.sourceforge.net/docbook/docbook-xsl-1.78.1.tar.bz2"
- #"ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
- #"http://download.oracle.com/berkeley-db/db-6.1.26.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.42-consolidated-1.patch"
- #"ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.42.tgz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/pcre-8.37-upstream_fixes-1.patch"
- #"ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2"
+# "http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz"
+# "http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch"
+# "ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
+# "http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip"
+# "http://downloads.sourceforge.net/docbook/docbook-xsl-1.78.1.tar.bz2"
+# "ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.6.0.tar.bz2"
+# "http://download.oracle.com/berkeley-db/db-6.1.26.tar.gz"
+# "http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.42-consolidated-1.patch"
+# "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.42.tgz"
+# "http://www.linuxfromscratch.org/patches/blfs/svn/pcre-8.37-upstream_fixes-1.patch"
+# "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2"
  ##############"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
- #"http://libndp.org/files/libndp-1.5.tar.gz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libgudev/230/libgudev-230.tar.xz"
+# "http://libndp.org/files/libndp-1.5.tar.gz"
+# "ftp://ftp.gnome.org/pub/gnome/sources/libgudev/230/libgudev-230.tar.xz"
  #################"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
  #################"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
  #################"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.0/NetworkManager-1.0.6.tar.xz"
+# "ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.0/NetworkManager-1.0.6.tar.xz"
  
  ##############"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
  ##############"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
  ##############"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
  ##############"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"
- #"http://download.videolan.org/vlc/2.2.1/vlc-2.2.1.tar.xz"
- #"http://kcat.strangesoft.net/openal-releases/openal-soft-1.16.0.tar.bz2" 
- #"http://ftp.mozilla.org/pub/mozilla.org/js/mozjs17.0.0.tar.gz"
- #"http://linux-pam.org/library/Linux-PAM-1.2.1.tar.bz2"
- #"http://www.freedesktop.org/software/polkit/releases/polkit-0.113.tar.gz"
- #"http://downloads.us.xiph.org/releases/speex/speex-1.2rc2.tar.gz"
- #"http://downloads.us.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz"
- #"https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz"
- #"http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
- #"https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz"
- #"http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
- #"http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
- #"http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
- #"https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
- #"http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
- #"https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
- #"https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
- #"http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
- #"ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
- #"http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
- #"http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
+## "http://download.videolan.org/vlc/2.2.1/vlc-2.2.1.tar.xz"
+## "http://kcat.strangesoft.net/openal-releases/openal-soft-1.16.0.tar.bz2" 
+# "http://ftp.mozilla.org/pub/mozilla.org/js/mozjs17.0.0.tar.gz"
+## "http://linux-pam.org/library/Linux-PAM-1.2.1.tar.bz2"
+# "http://www.freedesktop.org/software/polkit/releases/polkit-0.113.tar.gz"
+## "http://downloads.us.xiph.org/releases/speex/speex-1.2rc2.tar.gz"
+## "http://downloads.us.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz"
+## "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz"
+## "http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
+## "https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz"
+## "http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
+# "http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
+# "http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2"
+# "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
+# "http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
+# "https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
+# "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
+# "http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
+# "ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
+# "http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
+# "http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
 
  ##### Da haben einige Pakete Kreisfoermige Abhaengigkeiten
- #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.1.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.18/at-spi2-atk-2.18.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.46/gobject-introspection-1.46.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
+## "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.2.tar.xz"
  
  # gnome icons + BluefishEditor
- #"ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
- "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
+ ##"ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
+ ##"http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
+ # Weston
+ ## "http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2"
+ ## "http://wayland.freedesktop.org/releases/weston-1.8.0.tar.xz"
   
- #"http://www.exiv2.org/exiv2-0.25.tar.gz"
- #"http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
- #"http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
- #"http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
- #"http://fribidi.org/download/fribidi-0.19.7.tar.bz2"
- #"http://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.0.tar.gz"
+## "http://www.exiv2.org/exiv2-0.25.tar.gz"
+## "http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
+## "http://pkgs.fedoraproject.org/repo/pkgs/libaccounts-glib/libaccounts-glib-1.18.tar.gz/fa37ebbe1cc1e8b738368ba86142c197/libaccounts-glib-1.18.tar.gz"
+## "http://luajit.org/download/LuaJIT-2.0.4.tar.gz"
+## "http://fribidi.org/download/fribidi-0.19.7.tar.bz2"
+## "http://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.0.tar.gz"
  
- ############ QT 5.5.0
- #"http://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
- #"http://download.qt.io/official_releases/qtcreator/3.5/3.5.1/qt-creator-opensource-src-3.5.1.tar.gz"
- #"https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
- #"http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
+ ############ QT 5.5.1
+## "http://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
+## "http://download.qt.io/official_releases/qtcreator/3.5/3.5.1/qt-creator-opensource-src-3.5.1.tar.gz"
+## "https://sources.archlinux.org/other/packages/libaccounts-qt/accounts-qt-1.13.tar.bz2"
+## "http://archlinux.c3sl.ufpr.br/sources/packages/signond-8.58.tar.gz"
  ############ KDE5
  #"https://martine.github.io/ninja/ninja-1.6.tar.gz"
  #"telepathy-glib-0.24.1.tar.gz"
@@ -495,10 +509,13 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   cd $ordnerdir
   test -e ../$name-*.patch &&  patch -Np1 -i ../$name-*.patch
   fi
-  unset patch
+  unset patch 
+  export PATH=`printf "/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11/bin" ; for file in /opt/*/bin; do if [ -d $file ]; then printf ":"$file ; fi done `
+  export PKG_CONFIG_PATH=`printf "/usr/X11/lib/pkgconfig:/usr/lib/pkgconfig" ; for file in /opt/*/lib/pkgconfig; do if [ -d $file ]; then printf ":"$file ; fi done `  
   set -e
 
   case "$ordnerdir" in
+     gst-plugins-bad-1.6.0)     name="gst-plugins-bad" ;;
      dbus-python-1.2.0)         name="dbus-python" ;;
      3.2.6)                     cd eigen-eigen-c58038c56923; mkdir build ; cd build ; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make ; make install 
      				cd /BLFS/SOURCE ; rm -rf eigen-eigen-c58038c56923 ; continue  ;; 
@@ -554,12 +571,17 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
   case "$name" in 
+     imlib2)	   ./configure --prefix=/usr ; LD_LIBRARY_PATH=/usr/X11/lib make ; make install ;;
+     gst-plugins-bad) 
+     		   config '--disable-wayland' ;;
+     librsvg)      config '--disable-introspection' ;;
+     weston)	   config '--enable-demo-clients-install' ;;
      bluefish)     configopt $ordnerdir ;;
      LuaJIT)       sed -i 's@export PREFIX= /usr/local@export PREFIX= /usr@g' Makefile ; make ; make install;;
      firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
                    CXXFLAGS="-O3 -march=ivybridge -pipe " SHELL=/bin/sh ../configure --prefix=/opt/firefox --disable-optimize --with-system-zlib --with-system-jpeg --enable-svg --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
                    SHELL=/bin/sh make -j 6 ; SHELL=/bin/sh make install
-                   ln -s /opt/firefox/bin/firefox /usr/bin/
+                   ###ln -s /opt/firefox/bin/firefox /usr/bin/
                    ;;
      libpng)       gzip -cd ../libpng-1.6.18-apng.patch.gz | patch -p1 ; config ;;
      ninja)        ./bootstrap.py ; cp ninja /usr/sbin/ ;;
@@ -630,7 +652,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      		   ln -v -sf libxvidcore.so.4.3 /usr/lib/libxvidcore.so.4
      		   ln -v -sf libxvidcore.so.4 /usr/lib/libxvidcore.so
      		   ;;
-     libbluray)    PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11/bin:/opt/java/bin:/opt/ant/bin"  JDK_HOME=/opt/java ANT_HOME=/opt/ant ./configure --prefix=/usr --enable-udf ; make ; make install ;;
+     libbluray)    export PATH=$PATH+":/opt/java/bin:/opt/ant/bin" ; JDK_HOME=/opt/java ANT_HOME=/opt/ant ./configure --prefix=/usr --enable-udf  ; make ; make install ;;
      junit)        continue ;;
      hamcrest)	   ;;
      cdrdao)	   sed -i '/ioctl/a #include <sys/stat.h>' dao/ScsiIf-linux.cc ; config ;;
@@ -749,6 +771,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      URI)	   perl Makefile.PL ; make ; make install ;;
      XML)          perl Makefile.PL ; make ; make install ;;
      #Python2/3 Modules 
+     pyxdg)        python setup.py install --optimize=1 ; python3 setup.py install --optimize=1 ;;
      dbus-python)  mkdir python2 ; pushd python2 ; PYTHON=/usr/bin/python  ../configure --prefix=/usr ; make ; popd 
                    mkdir python3 ; pushd python3 ; PYTHON=/usr/bin/python3 ../configure --prefix=/usr ; make ; popd
                    make -C python2 install ; make -C python3 install ;;

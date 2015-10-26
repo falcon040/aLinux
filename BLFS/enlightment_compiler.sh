@@ -42,7 +42,7 @@ downloadliste=(
  #"http://download.enlightenment.org/rel/apps/econnman/econnman-1.1.tar.gz"
  #"https://download.enlightenment.org/rel/apps/enlightenment/desksanity-1.0.2.tar.xz"
  #"http://download.enlightenment.org/rel/apps/epour/epour-0.6.0.tar.gz"
- "https://download.enlightenment.org/rel/apps/eflete/eflete-0.5.0.tar.gz"
+ #"https://download.enlightenment.org/rel/apps/eflete/eflete-0.5.0.tar.gz"
 );
 
 if test $1 = check
