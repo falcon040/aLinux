@@ -355,7 +355,7 @@ downloadliste3=(
  "https://ftp.mozilla.org/pub/firefox/releases/41.0.2/source/firefox-41.0.2.source.tar.xz"
 );
 
-
+# bmpanel2 - conky - openbox - rxvt
 downloadliste=(
  "http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
  "http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
@@ -363,6 +363,19 @@ downloadliste=(
  "http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz"
  "ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2"
  "http://openbox.org/dist/obconf/obconf-2.0.4.tar.gz"
+ "http://bmpanel2.googlecode.com/files/bmpanel2-2.1pre1.tar.gz"
+ "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.21.tar.bz2"
+ "http://www.linuxfromscratch.org/patches/blfs/svn/lua-5.3.1-shared_library-1.patch"
+ "http://www.lua.org/ftp/lua-5.3.1.tar.gz"
+ "http://downloads.sourceforge.net/project/conky/conky/1.9.0/conky-1.9.0.tar.bz2"
+);
+
+# Audacious der Audio Player
+downloadliste=(
+#"http://distfiles.audacious-media-player.org/audacious-3.6.2-gtk3.tar.bz2"
+#"http://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/1.8/libsidplayfp-1.8.2.tar.gz"
+"http://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
+"http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2-gtk3.tar.bz2"
 );
 
 
@@ -571,6 +584,23 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
   case "$name" in 
+     conky)        config '--enable-imlib2  --enable-curl' ;;
+     lua)          sed -i 's@INSTALL_TOP= /usr/local@INSTALL_TOP= /usr@g' Makefile ; make linux ; make install  
+                   cp -a src/liblua* /usr/lib/ ; ldconfig
+                   cp src/lua*.h /usr/include/
+                   echo 'prefix=/usr'                       >  /usr/lib/pkgconfig/lua.pc
+                   echo 'exec_prefix=${prefix}'             >> /usr/lib/pkgconfig/lua.pc
+                   echo 'libdir=${exec_prefix}/lib'         >> /usr/lib/pkgconfig/lua.pc
+                   echo 'includedir=${prefix}/include'      >> /usr/lib/pkgconfig/lua.pc
+                   echo ''                                  >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Name: Lua'                         >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Description: An Extensible Extension Language'   >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Requires:'                         >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Version: 5.3.1'                    >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Libs: -L${libdir} -llua -lm'       >> /usr/lib/pkgconfig/lua.pc
+                   echo 'Cflags: -I${includedir}'           >> /usr/lib/pkgconfig/lua.pc                   
+                   ;;
+     bmpanel2)     cmake -DCMAKE_INSTALL_PREFIX=/usr . ; make ; make install ;;
      imlib2)	   ./configure --prefix=/usr ; LD_LIBRARY_PATH=/usr/X11/lib make ; make install ;;
      gst-plugins-bad) 
      		   config '--disable-wayland' ;;

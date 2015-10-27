@@ -12,4 +12,4 @@ Screen "Workbench Screen1"
 Screen "Workbench Screen2"
 Module "Keyboard" "Meta<M>:all:rotatescreens"
 ToolItem "Firefox" "firefox" [""]
-ToolItem "XTerm" "xterm" [""]
+ToolItem "XTerm" "xterm -ut -sb -sl 1000 -ls -cr '#f08000' -fg '#f0f0f0' -bg '#0050a0' -rightbar" [""]
