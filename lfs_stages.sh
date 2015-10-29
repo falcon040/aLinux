@@ -86,7 +86,7 @@ VIM="vim-7.4.tar.bz2"
 BC="bc-1.06.95.tar.bz2"
 GPERF="gperf-3.0.4.tar.gz"
 EUDEV="eudev-3.1.2.tar.gz"
-
+DOSFSTOOLS="dosfstools-3.0.26.tar.gz"
 ### ---------------------------------------------------------------------------------------------------
 
 umask 022
@@ -1417,6 +1417,14 @@ fi
 
 if test $1 = stage97
 then
+tar xvf SOURCE/$DOSFSTOOLS
+cd dosfstools-*
+sed -i 's@PREFIX = /usr/local@PREFIX = /usr@g' Makefile
+make ; make install
+fi
+
+if test $1 = stage98
+then
 echo " 3 x logout ausfuehren, bis nicht mehr in chroot, dann stage100"
 fi
 
@@ -1458,7 +1466,7 @@ fi
 
 if test $1 = stage104
 then
-rm -rf attr-* joe-* bc-* libpipeline-* kmod-* gperf-* eudev-* check-* xz-* pkg-config-* autoconf-* automake-* bash-* binutils-* bison-* bzip2-* coreutils-* db-* diffutils-* e2fsprogs-* file-* findutils-* flex-* gawk-* gettext-* glibc-* grep-* groff-* gzip-* inetutils-* iproute2-* kbd-* less-* libtool-* m4-* make-* man-db-2* man-pages-* mktemp-* module-init-tools-* ncurses-* patch-* perl-* procps-* psmisc-* readline-* sed-* shadow-* sysklogd-* sysvinit-* tar-* texinfo-* udev-* util-linux-* vim* zlib-* gcc-* dummy.c dummy.log a.out etc/default tmp/* iproute-*   gdbm-*  linux-2.* expect*
+rm -rf dosfstools-* attr-* joe-* bc-* libpipeline-* kmod-* gperf-* eudev-* check-* xz-* pkg-config-* autoconf-* automake-* bash-* binutils-* bison-* bzip2-* coreutils-* db-* diffutils-* e2fsprogs-* file-* findutils-* flex-* gawk-* gettext-* glibc-* grep-* groff-* gzip-* inetutils-* iproute2-* kbd-* less-* libtool-* m4-* make-* man-db-2* man-pages-* mktemp-* module-init-tools-* ncurses-* patch-* perl-* procps-* psmisc-* readline-* sed-* shadow-* sysklogd-* sysvinit-* tar-* texinfo-* udev-* util-linux-* vim* zlib-* gcc-* dummy.c dummy.log a.out etc/default tmp/* iproute-*   gdbm-*  linux-2.* expect*
 fi
 
 if test $1 = stage105

@@ -11,7 +11,6 @@ export J=5
 
 
 config_cmake() { 
-extra=$1
 mkdir -v build &&
 cd       build 
 cmake $extra ..
@@ -21,6 +20,7 @@ make -j $J ; make install
 #Default configure fuer ~70% der Pakete
 config () {
 extra=$1
+echo $extra
 ./configure $extra --disable-static --prefix=/usr && sleep 2 && make -j $J && make install
 }
 config1 () {
@@ -355,7 +355,7 @@ downloadliste3=(
  "https://ftp.mozilla.org/pub/firefox/releases/41.0.2/source/firefox-41.0.2.source.tar.xz"
 );
 
-# bmpanel2 - conky - openbox - rxvt
+# bmpanel2 - conky - openbox - rxvt - feh
 downloadliste=(
  #"http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
  #"http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
@@ -369,17 +369,33 @@ downloadliste=(
  #"http://www.lua.org/ftp/lua-5.3.1.tar.gz"
  #"http://downloads.sourceforge.net/project/conky/conky/1.9.0/conky-1.9.0.tar.bz2"
  #"http://feh.finalrewind.org/feh-2.14.tar.bz2"
+ #"http://softwarebakery.com/maato/files/volumeicon/volumeicon-0.5.1.tar.gz" 
+ #"https://github.com/dmedvinsky/gsimplecal/archive/gsimplecal-2.1.tar.gz"
+ #"http://downloads.sourceforge.net/lxde/lxmenu-data-0.1.4.tar.xz"
+ #"http://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz"
+ #"http://downloads.sourceforge.net/pcmanfm/libfm-1.2.3.tar.xz"
+ #"http://downloads.sourceforge.net/lxde/menu-cache-1.0.0.tar.xz"
+ #"http://downloads.sourceforge.net/pcmanfm/libfm-1.2.3.tar.xz"
+ #"http://downloads.sourceforge.net/pcmanfm/pcmanfm-1.2.3.tar.xz"
+ #"http://downloads.sourceforge.net/lxde/lxappearance-0.6.1.tar.xz"
+ #"http://downloads.sourceforge.net/lxde/gpicview-0.2.4.tar.gz"
+ #"http://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.2.tar.xz"
+ #"http://downloads.sourceforge.net/project/xarchiver/xarchiver-0.5.4.tar.bz2"
+ #"http://www.linuxfromscratch.org/patches/blfs/svn/xchat-2.8.8-glib-2.31-1.patch"
+ #"http://www.xchat.org/files/source/2.8/xchat-2.8.8.tar.bz2"
+ #"http://zoncolor.googlecode.com/files/zoncolor-themes-pack_1.6.5.tar.gz"
 );
 
 # Audacious der Audio Player
-downloadliste=(
+downloadliste1=(
  #"http://distfiles.audacious-media-player.org/audacious-3.6.2.tar.bz2"
  #"http://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/1.8/libsidplayfp-1.8.2.tar.gz"
  #"http://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
  #"http://downloads.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.bz2"
  #"http://sourceforge.net/projects/soxr/files/soxr-0.1.2-Source.tar.xz"
  #"http://pkgs.fedoraproject.org/repo/pkgs/neon/neon-0.30.1.tar.gz/231adebe5c2f78fded3e3df6e958878e/neon-0.30.1.tar.gz"
- "http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2.tar.bz2"
+ #"http://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
+ #"http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2.tar.bz2"
 
 );
 
@@ -533,6 +549,14 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
+     zoncolor-themes-pack*)	cd zoncolor-themes/zoncolor/gtk-themes
+     				tar xvf gtk-themes.tar.gz 
+     				cp -a zoncolor* /usr/share/themes
+     				cd ../icon-themes
+     				tar xvf icon-themes.tar.gz
+     				cp -a zon* /usr/share/icons/
+     				cp /BLFS/EXTRA/menu.xml /usr/etc/xdg/openbox/menu.xml
+				cd /BLFS/SOURCE ; rm -rf zoncolor-themes ; continue ;;
      audacious-plugins-*)       name="audacious-plugins" ;;
      gst-plugins-bad-1.6.0)     name="gst-plugins-bad" ;;
      dbus-python-1.2.0)         name="dbus-python" ;;
@@ -591,6 +615,14 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   
  
   case "$name" in 
+     libfm)        if [ -f /usr/lib/libfm-extra.so ]; then  
+                   config ' '  
+                   else  
+                   config '--with-extra-only --with-gtk=no'  
+                   fi 
+                   ;;
+     gsimplecal)   sh autogen.sh ; config '--enable-gtk2' ;;
+     uade)         config '--without-audacious' ;;
      soxr)         cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr . ; make ; make install ;;
      audacious-plugins)  ./configure --prefix=/usr --disable-aac --with-ffmpeg=none CXX="g++ -L/usr/X11/lib" ; make -j6 ; make install ;;
      #pycairo)      ./waf configure --prefix=/usr ; ./waf build ; ./waf install  ;;
