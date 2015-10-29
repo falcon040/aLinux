@@ -357,25 +357,30 @@ downloadliste3=(
 
 # bmpanel2 - conky - openbox - rxvt
 downloadliste=(
- "http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
- "http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
- "http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
- "http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz"
- "ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2"
- "http://openbox.org/dist/obconf/obconf-2.0.4.tar.gz"
- "http://bmpanel2.googlecode.com/files/bmpanel2-2.1pre1.tar.gz"
- "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.21.tar.bz2"
- "http://www.linuxfromscratch.org/patches/blfs/svn/lua-5.3.1-shared_library-1.patch"
- "http://www.lua.org/ftp/lua-5.3.1.tar.gz"
- "http://downloads.sourceforge.net/project/conky/conky/1.9.0/conky-1.9.0.tar.bz2"
+ #"http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
+ #"http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
+ #"http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
+ #"http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2"
+ #"http://openbox.org/dist/obconf/obconf-2.0.4.tar.gz"
+ #"http://bmpanel2.googlecode.com/files/bmpanel2-2.1pre1.tar.gz"
+ #"http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.21.tar.bz2"
+ #"http://www.linuxfromscratch.org/patches/blfs/svn/lua-5.3.1-shared_library-1.patch"
+ #"http://www.lua.org/ftp/lua-5.3.1.tar.gz"
+ #"http://downloads.sourceforge.net/project/conky/conky/1.9.0/conky-1.9.0.tar.bz2"
+ #"http://feh.finalrewind.org/feh-2.14.tar.bz2"
 );
 
 # Audacious der Audio Player
 downloadliste=(
-#"http://distfiles.audacious-media-player.org/audacious-3.6.2-gtk3.tar.bz2"
-#"http://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/1.8/libsidplayfp-1.8.2.tar.gz"
-"http://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
-"http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2-gtk3.tar.bz2"
+ #"http://distfiles.audacious-media-player.org/audacious-3.6.2.tar.bz2"
+ #"http://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/1.8/libsidplayfp-1.8.2.tar.gz"
+ #"http://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
+ #"http://downloads.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.bz2"
+ #"http://sourceforge.net/projects/soxr/files/soxr-0.1.2-Source.tar.xz"
+ #"http://pkgs.fedoraproject.org/repo/pkgs/neon/neon-0.30.1.tar.gz/231adebe5c2f78fded3e3df6e958878e/neon-0.30.1.tar.gz"
+ "http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2.tar.bz2"
+
 );
 
 
@@ -528,6 +533,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
+     audacious-plugins-*)       name="audacious-plugins" ;;
      gst-plugins-bad-1.6.0)     name="gst-plugins-bad" ;;
      dbus-python-1.2.0)         name="dbus-python" ;;
      3.2.6)                     cd eigen-eigen-c58038c56923; mkdir build ; cd build ; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make ; make install 
@@ -583,7 +589,12 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      				continue ;;
   esac
   
+ 
   case "$name" in 
+     soxr)         cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr . ; make ; make install ;;
+     audacious-plugins)  ./configure --prefix=/usr --disable-aac --with-ffmpeg=none CXX="g++ -L/usr/X11/lib" ; make -j6 ; make install ;;
+     #pycairo)      ./waf configure --prefix=/usr ; ./waf build ; ./waf install  ;;
+     feh)          CC="gcc -L/usr/X11/lib" PREFIX=/usr make ; PREFIX=/usr make install ;;
      conky)        config '--enable-imlib2  --enable-curl' ;;
      lua)          sed -i 's@INSTALL_TOP= /usr/local@INSTALL_TOP= /usr@g' Makefile ; make linux ; make install  
                    cp -a src/liblua* /usr/lib/ ; ldconfig

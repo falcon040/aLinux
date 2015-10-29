@@ -3,7 +3,7 @@ double_buffer yes
 
 #own window to run simultanious 2 or more conkys
 own_window  yes
-own_window_transparent no
+own_window_transparent yes
 own_window_type normal
 own_window_hints undecorate,sticky,skip_taskbar,skip_pager 
 
@@ -33,7 +33,7 @@ use_xft yes
 xftfont bauhaus:pixelsize=11
 
 #to prevent window from moving
-use_spacer none
+use_spacer no
 minimum_size 1920 0
 maximum_width to 1920
 #mpd
@@ -42,6 +42,8 @@ maximum_width to 1920
 
 #alignment top_middle
 no_buffers yes
+use_spacer left
+pad_percents 3
 
 TEXT
-${alignc}Kernel: ${color D7D3C5}$kernel  |  ${time %d %B} ${color D7D3C5}${time  %H:%M}  |  ${color} Up: ${color D7D3C5}${uptime_short}  |  ${color}Processes: ${color D7D3C5}$processes  ${color}Running: ${color D7D3C5}$running_processes  |  ${color}Cpu: ${color D7D3C5}${cpu}%   ${color}${cpugraph 10,80 AEA08E 9F907D} ${color D7D3C5}  |  ${color }Mem: ${color D7D3C5}$mem/$memmax - $memperc% ${color} ${membar 6,80}${color D7D3C5}  |  ${color }Net: ${color}  ${downspeedgraph eth0 10,80 AEA08E 9F907D}  ${color D7D3C5} ${totaldown eth0} down  |   ${color} ${upspeedgraph eth0 10,80 AEA08E 9F907D}  ${color D7D3C5}${totalup eth0} up  |  ${color}RootIo: ${color} ${diskiograph sda 10,80 AEA08E 9F907D}
+${alignc}Kernel: ${color D7D3C5}$kernel  |  ${time %d %B} ${color D7D3C5}${time  %H:%M}  |  ${color} Up: ${color D7D3C5}${uptime_short}  |  ${color}Processes: ${color D7D3C5}$processes  ${color}Running: ${color D7D3C5}$running_processes  |  ${color}Cpu: ${color D7D3C5}${cpu}%   ${color}${cpugraph 10,80 AEA08E 9F907D} ${color D7D3C5}  |  ${color }Mem: ${color D7D3C5}$mem/$memmax - $memperc% ${color} ${membar 6,80}${color D7D3C5}  |  ${color }Net: ${color} ${downspeedgraph eth0 10,80 AEA08E 9F907D} ${color D7D3C5} ${totaldown eth0} down  -  ${color} ${upspeedgraph eth0 10,80 AEA08E 9F907D}  ${color D7D3C5}${totalup eth0} up  |  ${color}HD-Read: ${color} ${diskiograph_read sda 10,80 AEA08E 9F907D}  -  ${color}Write: ${color} ${diskiograph_write sda 10,80 AEA08E 9F907D}

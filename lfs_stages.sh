@@ -76,6 +76,7 @@ KBD="kbd-2.0.3.tar.xz"
 LESS="less-458.tar.gz"
 LIBPIPELINE="libpipeline-1.4.1.tar.gz"
 MANDB="man-db-2.7.2.tar.xz"
+MANPAGES="man-pages-4.02.tar.xz"
 KMOD="kmod-21.tar.xz"
 PSMISC="psmisc-22.21.tar.gz"
 SHADOW="shadow-4.2.1.tar.xz"
@@ -1407,8 +1408,14 @@ cd joe-*
 make -j $J && make install
 fi
 
-
 if test $1 = stage96
+then
+tar xvf SOURCE/$MANPAGES
+cd man-pages-*
+make install
+fi
+
+if test $1 = stage97
 then
 echo " 3 x logout ausfuehren, bis nicht mehr in chroot, dann stage100"
 fi
