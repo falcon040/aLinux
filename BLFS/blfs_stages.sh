@@ -357,6 +357,9 @@ downloadliste3=(
 
 # bmpanel2 - conky - openbox - rxvt - feh
 downloadliste=(
+ #"http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
+ #"http://http.debian.net/debian/pool/main/g/gtk2-engines-murrine/gtk2-engines-murrine_0.98.1.1.orig.tar.gz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.18/gtksourceview-3.18.1.tar.xz"
  #"http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
  #"http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
  #"http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
@@ -384,6 +387,8 @@ downloadliste=(
  #"http://www.linuxfromscratch.org/patches/blfs/svn/xchat-2.8.8-glib-2.31-1.patch"
  #"http://www.xchat.org/files/source/2.8/xchat-2.8.8.tar.bz2"
  #"http://zoncolor.googlecode.com/files/zoncolor-themes-pack_1.6.5.tar.gz"
+ #"http://savannah.nongnu.org/download/leafpad/leafpad-0.8.17.tar.gz"
+ #"http://download.geany.org/geany-1.25.tar.bz2"
 );
 
 # Audacious der Audio Player
@@ -396,7 +401,13 @@ downloadliste1=(
  #"http://pkgs.fedoraproject.org/repo/pkgs/neon/neon-0.30.1.tar.gz/231adebe5c2f78fded3e3df6e958878e/neon-0.30.1.tar.gz"
  #"http://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
  #"http://distfiles.audacious-media-player.org/audacious-plugins-3.6.2.tar.bz2"
+);
 
+# spotify, cups nicht configuriert, gedruckt wird später unter qemu-windows
+downloadliste=(
+ #"ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz"
+ #"http://www.cups.org/software/2.1.0/cups-2.1.0-source.tar.bz2"
+ "spotify"
 );
 
 
@@ -549,6 +560,17 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
+     cups-*)			cd cups-*/
+     				sed -i 's:555:755:g;s:444:644:g' Makedefs.in  
+     				sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4          
+				sed -i '/LIBGCRYPTCONFIG/d' config-scripts/cups-ssl.m4
+				aclocal  -I config-scripts ; autoconf -I config-scripts
+				./configure --libdir=/usr/lib --disable-systemd  --with-rcdir=/tmp/cupsinit --with-system-groups=lpadmin ; make -j5
+				make install ; rm -rf /tmp/cupsinit
+				cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;
+     gtk2-engines-murrine*)     cd murrine-0.98*/ 
+     				config 
+  				cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;  
      zoncolor-themes-pack*)	cd zoncolor-themes/zoncolor/gtk-themes
      				tar xvf gtk-themes.tar.gz 
      				cp -a zoncolor* /usr/share/themes
@@ -556,6 +578,10 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      				tar xvf icon-themes.tar.gz
      				cp -a zon* /usr/share/icons/
      				cp /BLFS/EXTRA/menu.xml /usr/etc/xdg/openbox/menu.xml
+     				cp /BLFS/EXTRA/bmpanel2rc /root/.config/bmpanel2
+     				cp /BLFS/EXTRA/.conkyrc /root/.conkyrc
+     				cp /BLFS/EXTRA/.icons.tar.gz /root/
+     				cd /root ; tar xvf .icons.tar.gz ; rm .icons.tar.gz
 				cd /BLFS/SOURCE ; rm -rf zoncolor-themes ; continue ;;
      audacious-plugins-*)       name="audacious-plugins" ;;
      gst-plugins-bad-1.6.0)     name="gst-plugins-bad" ;;
@@ -614,7 +640,10 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   esac
   
  
-  case "$name" in 
+  case "$name" in
+     spotify)      tar xvfz spotify.tar.gz ; mv spotify /opt/ 
+		   ln -s /opt/spotify/spotify /usr/sbin/spotify ;;
+     GConf)        config '--disable-orbit' ;;
      libfm)        if [ -f /usr/lib/libfm-extra.so ]; then  
                    config ' '  
                    else  

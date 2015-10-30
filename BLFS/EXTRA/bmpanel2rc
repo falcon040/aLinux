@@ -1,0 +1,4 @@
+launchbar
+	exec urxvt
+		icon /usr/share/icons/Adwaita/64x64/apps/utilities-terminal-symbolic.symbolic.png
+clock_prog /usr/bin/gsimplecal

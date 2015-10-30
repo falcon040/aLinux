@@ -2,8 +2,18 @@
 
 /usr/X11/bin/xmodmap /etc/X11/xmodmap.map
 
+#eval `dbus-launch`
+#export DBUS_SESSION_BUS_ADDRESS
+
 #twm &
-/opt/amiwm/bin/amiwm &
+#/opt/amiwm/bin/amiwm 
+bmpanel2 --theme Ice-io &
+conky &
+feh --bg-scale /root/.backgroundimage.jpg
+openbox
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
-xterm -geometry 100x50+200+200 -name login
+#xterm -geometry 100x50+200+200 -name login
+
+# Kill the D-Bus session daemon
+#kill $DBUS_SESSION_BUS_PID
