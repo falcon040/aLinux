@@ -187,6 +187,12 @@
       <prompt>yes</prompt>
     </action>
   </item>
+  <separator />
+  <item label="Suspend to Ram">
+   <action name="Execute">
+    <command>suspendtoram</command>
+   </action>
+  </item>
 </menu>
 
 </openbox_menu>
