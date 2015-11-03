@@ -80,13 +80,16 @@ wget -c http://xcb.freedesktop.org/dist/libxcb-1.11.1.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-proto-1.11.tar.bz2
 test -e xcb-base-0.4.0.tar.bz2 || (wget -c http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.bz2
 mv xcb-util-0.4.0.tar.bz2 xcb-base-0.4.0.tar.bz2)
+wget -c ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.16.tar.bz2
+wget -c http://www.freedesktop.org/software/libevdev/libevdev-1.4.4.tar.xz
+wget ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.9.2.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 wget -c http://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.2.tar.gz
 wget -c http://dri.freedesktop.org/libdrm/libdrm-2.4.65.tar.bz2
-wget -c ftp://ftp.freedesktop.org/pub/mesa/11.0.3/mesa-11.0.3.tar.xz
+wget -c ftp://ftp.freedesktop.org/pub/mesa/11.0.4/mesa-11.0.4.tar.xz
 wget -c ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2
 wget -c http://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
 test -e libva-base-1.6.1.tar.bz2 || (wget -c http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.6.1.tar.bz2
@@ -96,7 +99,7 @@ wget -c http://www.freedesktop.org/software/vaapi/releases/libva-vdpau-driver/li
 
 wget -c http://wayland.freedesktop.org/releases/wayland-1.9.0.tar.xz
 wget -c http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2
-wget -c http://www.freedesktop.org/software/libinput/libinput-1.0.1.tar.xz
+wget -c http://www.freedesktop.org/software/libinput/libinput-1.1.0.tar.xz
 wget -c http://xkbcommon.org/download/libxkbcommon-0.5.0.tar.xz
 
 wget -c http://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
@@ -321,7 +324,9 @@ intltool
 xkeyboard-config
 libxkbcommon
 mtdev
+libevdev
 libinput
+#xf86-input-evdev
 printproto
 libXp
 FONTCONFIG
@@ -331,6 +336,7 @@ glamor
 xf86-input-evdev
 xf86-input-synaptics
 xf86-input-vmmouse
+xf86-input-libinput-master
 xf86-video-ati
 xf86-video-fbdev
 xf86-video-intel
@@ -421,13 +427,14 @@ for paket in ${liste[@]}
                 	ln -svn $XORG_PREFIX/lib/fonts/X11/OTF /usr/share/fonts/X11-OTF
                 	ln -svn $XORG_PREFIX/lib/fonts/X11/TTF /usr/share/fonts/X11-TTF
                 	continue ;;
-  xkeyboard-config) 	config="$XORG_CONFIG --with-xkb-rules-symlink=xorg --disable-runtime-deps"   ;;
+  xkeyboard-config) 	config="$XORG_CONFIG --with-xkb-rules-symlink=xorg"   ;;
   luit)         	./configure $config ;  sed -i 's@CWARNFLAGS =@#CWARNFLAGS =@g' Makefile ;make && make install; cd .. ; rm -rf $paket*/  ;continue ;;
   freeglut)     	mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr/X11 -DCMAKE_BUILD_TYPE=Release -DFREEGLUT_BUILD_DEMOS=OFF -DFREEGLUT_BUILD_STATIC_LIBS=OFF ..
                 	make -j 5 && make install ; cd ../.. ; rm -rf $paket*/ ; continue  ;;
   #libvdpau-va-gl) 	cmake -DCMAKE_INSTALL_PREFIX=/usr/X11 -DCMAKE_BUILD_TYPE=Release && make && make install ;;
   libva-base)   	cd libva*/ ; paket=libva ;;
   xcb-base)     	cd xcb-util-*/ ; paket=xcb-util ;;
+  libinput)             config="$XORG_CONFIG --with-udev-dir=/lib/udev" ;;
   wayland)      	config="$XORG_CONFIG --disable-documentation" ;;
   mesa)         	config="--prefix=/usr --sysconfdir=/etc --enable-texture-float --enable-gles1 --enable-gles2 --enable-xa  --enable-glx-tls --enable-osmesa  --with-egl-platforms=drm,x11,wayland --with-gallium-drivers=nouveau,svga,swrast,i915,r600" ;;
   libdrm)       	sed -e "/pthread-stubs/d" -i configure.ac &&

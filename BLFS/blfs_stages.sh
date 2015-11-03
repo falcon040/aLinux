@@ -281,7 +281,7 @@ downloadliste5=(
  "X11NOW"
 );
 
-downloadliste=(
+downloadliste1=(
  "http://cairographics.org/releases/cairo-1.14.2.tar.xz"
  "http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.6.tar.bz2"
  "http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2"
@@ -356,7 +356,7 @@ downloadliste3=(
 );
 
 # bmpanel2 - conky - openbox - rxvt - feh
-downloadliste=(
+downloadliste1=(
  "http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
  "http://http.debian.net/debian/pool/main/g/gtk2-engines-murrine/gtk2-engines-murrine_0.98.1.1.orig.tar.gz"
  "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.18/gtksourceview-3.18.1.tar.xz"
@@ -404,7 +404,7 @@ downloadliste1=(
 );
 
 # spotify, cups nicht configuriert, gedruckt wird später unter qemu-windows
-downloadliste=(
+downloadliste1=(
  "ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz"
  "http://www.cups.org/software/2.1.0/cups-2.1.0-source.tar.bz2"
  "spotify"
@@ -580,7 +580,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      				tar xvf icon-themes.tar.gz
      				cp -a zon* /usr/share/icons/
      				cp /BLFS/EXTRA/menu.xml /usr/etc/xdg/openbox/menu.xml
-     				cp /BLFS/EXTRA/bmpanel2rc /root/.config/bmpanel2
+     				cp /BLFS/EXTRA/bmpanel2rc /root/.config/bmpanel2rc
      				cp /BLFS/EXTRA/.conkyrc /root/.conkyrc
      				cp /BLFS/EXTRA/.icons.tar.gz /root/
      				cd /root ; tar xvf .icons.tar.gz ; rm .icons.tar.gz

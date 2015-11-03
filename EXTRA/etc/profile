@@ -12,6 +12,8 @@ export QT5DIR=/opt/qt5
 #Weston tmp
 export XDG_RUNTIME_DIR=/tmp
 
+export SHELL=/bin/bash
+
 export LC_ALL=de_DE.utf8
 export LANG=de_DE.utf8
 export LANGUAGE=de_DE.utf8
