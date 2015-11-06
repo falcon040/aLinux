@@ -1,4 +1,5 @@
-export  PS1="\`hostname\`:\${PWD}>"
+export PS1="\e[36m\`hostname\`:\${PWD}>\e[0m "
+#export PS1="\`hostname\`:\${PWD}>"
 #export PS1='\u:\w\$ '
 #export PS1="[\u@\h \w]\\$ "
 #export PS1='\u@\h:\w\$ '
@@ -18,4 +19,5 @@ export LANGUAGE=de_DE.utf8
 
 alias grep="grep --color"
 alias ll="ls -al --color"
-
+export CFLAGS="-O2 -s -march=ivybridge -pipe  "
+export CXXFLAGS="-O2 -s -march=ivybridge -pipe  "

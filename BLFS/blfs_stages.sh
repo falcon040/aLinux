@@ -11,6 +11,7 @@ export J=5
 
 
 config_cmake() { 
+extra=$1
 mkdir -v build &&
 cd       build 
 cmake $extra ..
@@ -23,10 +24,12 @@ extra=$1
 echo $extra
 ./configure $extra --disable-static --prefix=/usr && sleep 2 && make -j $J && make install
 }
+
 config1 () {
 extra=$1
 ./configure $extra --disable-static --prefix=/usr && make && make install
 }
+
 configopt () {
 folder=$1
 ./configure --disable-static --prefix=/opt/$folder && sleep 2 && make -j $J && make install
@@ -65,7 +68,7 @@ if [ ! -e /etc/xml/docbook ]; then
     /etc/xml/docbook &&
     xmlcatalog --noout --add "public" \
     "-//OASIS//DTD DocBook XML CALS Table Model V4.5//EN" \
-    "file:///usr/share/xml/docbook/xml-dtd-4.5/calstblx.dtd" \
+    "file:///usr/share/xml/docbook/xml-dtd-4.5/calstblxö.dtd" \
     /etc/xml/docbook &&
     xmlcatalog --noout --add "public" \
     "-//OASIS//DTD XML Exchange Table Model 19990315//EN" \
@@ -355,11 +358,11 @@ downloadliste3=(
  "https://ftp.mozilla.org/pub/firefox/releases/41.0.2/source/firefox-41.0.2.source.tar.xz"
 );
 
-# bmpanel2 - conky - openbox - rxvt - feh
+# bmpanel2 - conky - openbox - rxvt - feh - LX
 downloadliste1=(
  "http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
  "http://http.debian.net/debian/pool/main/g/gtk2-engines-murrine/gtk2-engines-murrine_0.98.1.1.orig.tar.gz"
- "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.18/gtksourceview-3.18.1.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.19/gtksourceview-3.19.1.tar.xz"
  "http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.7/imlib2-1.4.7.tar.bz2"
  "http://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz"
  "http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
@@ -383,12 +386,79 @@ downloadliste1=(
  "http://downloads.sourceforge.net/lxde/lxappearance-0.6.1.tar.xz"
  "http://downloads.sourceforge.net/lxde/gpicview-0.2.4.tar.gz"
  "http://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.2.tar.xz"
+ "http://downloads.sourceforge.net/lxde/lxtask-0.1.6.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz"
+ "http://downloads.sourceforge.net/lxde/lxterminal-0.2.0.tar.gz"
+ "http://downloads.sourceforge.net/lxde/lxrandr-0.3.0.tar.xz"
+ "http://downloads.sourceforge.net/lxde/lxinput-0.3.4.tar.xz"
  "http://downloads.sourceforge.net/project/xarchiver/xarchiver-0.5.4.tar.bz2"
  "http://www.linuxfromscratch.org/patches/blfs/svn/xchat-2.8.8-glib-2.31-1.patch"
  "http://www.xchat.org/files/source/2.8/xchat-2.8.8.tar.bz2"
  "http://zoncolor.googlecode.com/files/zoncolor-themes-pack_1.6.5.tar.gz"
  "http://savannah.nongnu.org/download/leafpad/leafpad-0.8.17.tar.gz"
  "http://download.geany.org/geany-1.25.tar.bz2"
+);
+
+# gnome 3.18
+# nimmt einfach kein Ende ... unvollständig
+downloadliste=(
+ ############"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.19/gtk+-3.19.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.18/gsettings-desktop-schemas-3.18.1.tar.xz"
+ #"http://files.itstool.org/itstool/itstool-2.0.2.tar.bz2"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.18/yelp-xsl-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.3.tar.xz"
+ #"http://p11-glue.freedesktop.org/releases/p11-kit-0.23.1.tar.gz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.18/gcr-3.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.18/gnome-keyring-3.18.3.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.26/gvfs-1.26.1.1.tar.xz"
+ #"http://ftp.mozilla.org/pub/mozilla.org/js/mozjs-24.2.0.tar.bz2"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.43/gjs-1.43.3.tar.xz"
+ #"http://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.59.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.18/gnome-desktop-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.4/gnome-video-effects-0.4.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.32/libgtop-2.32.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.16/libpeas-1.16.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.14/libwnck-3.14.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.6/gmime-2.6.20.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/vala/0.28/vala-0.28.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.46/glib-networking-2.46.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.52/libsoup-2.52.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.10/totem-pl-parser-3.10.5.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/vte/0.42/vte-0.42.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.24/dconf-0.24.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.18/dconf-editor-3.18.1.tar.xz"
+ #"http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.20.tar.gz"
+ #"http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz"
+ #"ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.2-5.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.18/gnome-themes-standard-3.18.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.18/notification-daemon-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/baobab/3.18/baobab-3.18.1.tar.xz"
+ #"http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.6.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.18/cheese-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.0.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/json-glib/1.0/json-glib-1.0.4.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.23/clutter-1.23.6.tar.xz"
+ ####################"ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.14.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/eog/3.18/eog-3.18.0.tar.xz"
+ #"http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.6.tar.bz2"
+ #"ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/enchant-1.6.0.tar.gz"
+ #"http://webkitgtk.org/releases/webkitgtk-2.10.3.tar.xz"
+ #"http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz"
+ #"http://avahi.org/download/avahi-0.6.31.tar.gz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.18/epiphany-3.18.0.tar.xz"
+ #"http://poppler.freedesktop.org/poppler-0.37.0.tar.xz"
+ #"http://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2"
+ #"http://libopenraw.freedesktop.org/download/exempi-2.2.2.tar.bz2"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.18/nautilus-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/evince/3.18/evince-3.18.1.tar.xz"
+ #"ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.16/file-roller-3.16.4.tar.xz"
+ #"https://download.gnome.org/core/3.19/3.19.1/sources/gsettings-desktop-schemas-3.18.1.tar.xz"
 );
 
 # Audacious der Audio Player
@@ -471,7 +541,7 @@ downloadliste1=(
  "ftp://ftp.gnome.org/pub/gnome/sources/pango/1.38/pango-1.38.0.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.32/gdk-pixbuf-2.32.1.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
- "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.18/gtk+-3.18.2.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.19/gtk+-3.19.1.tar.xz"
  
  # gnome icons + BluefishEditor
   "ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
@@ -562,7 +632,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
-     cups-*)			cd cups-*/
+    cups-*)			cd cups-*/
      				sed -i 's:555:755:g;s:444:644:g' Makedefs.in  
      				sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4          
 				sed -i '/LIBGCRYPTCONFIG/d' config-scripts/cups-ssl.m4
@@ -594,8 +664,8 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      				cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;
      Linux-PAM-1.2.1)		./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --enable-securedir=/lib/security 
 				make -j 5 ; make install ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;                                                     
-     mozjs17.0.0)		cd js/src ; sed -i 's/(defined\((@TEMPLATE_FILE)\))/\1/' config/milestone.pl ; ./configure --prefix=/usr --enable-readline  --enable-threadsafe  --with-system-ffi  --with-system-nspr
-				make -j 5 ; make install ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;                                                     
+     #mozjs17.0.0)		cd js/src ; sed -i 's/(defined\((@TEMPLATE_FILE)\))/\1/' config/milestone.pl ; ./configure --prefix=/usr --enable-readline  --enable-threadsafe  --with-system-ffi  --with-system-nspr
+     #				make -j 5 ; make install ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;                                                     
      dbus-glib-0.104)           ./configure --prefix=/usr --sysconfdir=/etc --disable-static ; make ; make install  ;;
      docbook-xsl-1.78.1)	docbookxslconfig ; cd /BLFS/SOURCE ; rm -rf $ordnerdir ; continue ;;
      qt-creator-opensource-src-*)
@@ -643,6 +713,23 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   
  
   case "$name" in
+     nautilus)	   config ' --enable-tracker=no ' ;;
+     avahi)	   sed -i 's/\(CFLAGS=.*\)-Werror \(.*\)/\1\2/' configure ; sed -e 's/-DG_DISABLE_DEPRECATED=1//' -e '/-DGDK_DISABLE_DEPRECATED/d'  -i avahi-ui/Makefile.in
+      		   config '--localstatedir=/var --disable-mono  --disable-monodoc --disable-python --disable-qt3 --disable-qt4 --with-distro=none -with-systemdsystemunitdir=no ' ;;
+     webkitgtk)    sed -e 's/“/\"/' -e 's/”/\"/' -i Source/WebCore/xml/XMLViewer.{css,js} 
+     		   cd /usr/lib ; ln -sf /usr/X11/lib/libwayland-* . ; cd - ; ldconfig 
+     		   config_cmake '-DCMAKE_BUILD_TYPE=Release  -DENABLE_GEOLOCATION=off -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_SKIP_RPATH=ON -DPORT=GTK -DLIB_INSTALL_DIR=/usr/lib -DUSE_LIBHYPHEN=OFF -DENABLE_MINIBROWSER=ON -Wno-dev .. ' 
+     		   install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0
+     		   install -vm644  ../Documentation/webkit2gtk-4.0/html/* /usr/share/gtk-doc/html/webkit2gtk-4.0 
+		   install -vm644  ../Documentation/webkitdomgtk-4.0/html/* /usr/share/gtk-doc/html/webkitdomgtk-4.0
+		   ;;
+     cogl)	   config '--enable-gles1 --enable-gles2' ;;
+     clutter)	   config '--enable-egl-backend' ;;
+     mozjs)	   cd js/src ; sed -i 's/(defined\((@TEMPLATE_FILE)\))/\1/' config/milestone.pl 
+     		   config '--enable-readline --enable-threadsafe --with-system-ffi --with-system-nspr'
+     		   find /usr/include/mozjs-24/ /usr/lib/libmozjs-24.a  /usr/lib/pkgconfig/mozjs-24.pc -type f -exec chmod -v 644 {} \; 
+     		   ;;
+     gvfs)	   config '--disable-gphoto2' ;;
      spotify)      tar xvfz spotify.tar.gz ; mv spotify /opt/ 
 		   ln -s /opt/spotify/spotify /usr/sbin/spotify ;;
      GConf)        config '--disable-orbit' ;;
