@@ -341,21 +341,21 @@ downloadliste1=(
  "http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz" 
 );
 
-downloadliste3=(
- # FIREFOX 41.0.2
- "http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
- "http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
- "http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
- "http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
- "http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.6.0.tar.xz"
- "http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.6.0.tar.xz"
- "http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.6.0.tar.xz"
- "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.6.0.tar.xz"  
- "http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.6.0.tar.xz"
- "https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
- "http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
- "http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
- "https://ftp.mozilla.org/pub/firefox/releases/41.0.2/source/firefox-41.0.2.source.tar.xz"
+downloadliste=(
+ # FIREFOX 42.0
+ #"http://downloads.sourceforge.net/levent/libevent-2.0.22-stable.tar.gz"
+ #"http://download.icu-project.org/files/icu4c/55.1/icu4c-55_1-src.tgz"
+ #"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
+ #"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
+ #"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.6.0.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.6.0.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.6.0.tar.xz"
+ #"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.6.0.tar.xz"  
+ #"http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.6.0.tar.xz"
+ "https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.10/src/nspr-4.10.10.tar.gz"
+ #"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
+ #"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz" 
+ "https://ftp.mozilla.org/pub/firefox/releases/42.0/source/firefox-42.0.source.tar.xz"
 );
 
 # bmpanel2 - conky - openbox - rxvt - feh - LX
@@ -397,68 +397,6 @@ downloadliste1=(
  "http://zoncolor.googlecode.com/files/zoncolor-themes-pack_1.6.5.tar.gz"
  "http://savannah.nongnu.org/download/leafpad/leafpad-0.8.17.tar.gz"
  "http://download.geany.org/geany-1.25.tar.bz2"
-);
-
-# gnome 3.18
-# nimmt einfach kein Ende ... unvollständig
-downloadliste=(
- ############"ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.19/gtk+-3.19.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.18/gsettings-desktop-schemas-3.18.1.tar.xz"
- #"http://files.itstool.org/itstool/itstool-2.0.2.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.18/yelp-xsl-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.3.tar.xz"
- #"http://p11-glue.freedesktop.org/releases/p11-kit-0.23.1.tar.gz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.18/gcr-3.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.18/gnome-keyring-3.18.3.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.26/gvfs-1.26.1.1.tar.xz"
- #"http://ftp.mozilla.org/pub/mozilla.org/js/mozjs-24.2.0.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.43/gjs-1.43.3.tar.xz"
- #"http://pkg-isocodes.alioth.debian.org/downloads/iso-codes-3.59.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.18/gnome-desktop-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.4/gnome-video-effects-0.4.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.32/libgtop-2.32.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.16/libpeas-1.16.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.14/libwnck-3.14.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.6/gmime-2.6.20.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/vala/0.28/vala-0.28.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.46/glib-networking-2.46.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.52/libsoup-2.52.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.10/totem-pl-parser-3.10.5.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/vte/0.42/vte-0.42.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.24/dconf-0.24.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.18/dconf-editor-3.18.1.tar.xz"
- #"http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.20.tar.gz"
- #"http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz"
- #"ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.2-5.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/gnome-themes-standard/3.18/gnome-themes-standard-3.18.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.18/notification-daemon-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/baobab/3.18/baobab-3.18.1.tar.xz"
- #"http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.6.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.18/cheese-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.0.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/json-glib/1.0/json-glib-1.0.4.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.23/clutter-1.23.6.tar.xz"
- ####################"ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.14.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/eog/3.18/eog-3.18.0.tar.xz"
- #"http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.0.6.tar.bz2"
- #"ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/enchant-1.6.0.tar.gz"
- #"http://webkitgtk.org/releases/webkitgtk-2.10.3.tar.xz"
- #"http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz"
- #"http://avahi.org/download/avahi-0.6.31.tar.gz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.18/epiphany-3.18.0.tar.xz"
- #"http://poppler.freedesktop.org/poppler-0.37.0.tar.xz"
- #"http://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2"
- #"http://libopenraw.freedesktop.org/download/exempi-2.2.2.tar.bz2"
- #"ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.18/nautilus-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/evince/3.18/evince-3.18.1.tar.xz"
- #"ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.16/file-roller-3.16.4.tar.xz"
- #"https://download.gnome.org/core/3.19/3.19.1/sources/gsettings-desktop-schemas-3.18.1.tar.xz"
 );
 
 # Audacious der Audio Player
@@ -769,7 +707,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
      weston)	   config '--enable-demo-clients-install' ;;
      bluefish)     configopt $ordnerdir ;;
      LuaJIT)       sed -i 's@export PREFIX= /usr/local@export PREFIX= /usr@g' Makefile ; make ; make install;;
-     firefox)	   cd mozilla-* ; mkdir build2 ; cd build2 
+     firefox)	   cd firefox-* ; mkdir build2 ; cd build2 
                    CXXFLAGS="-O3 -march=ivybridge -pipe " SHELL=/bin/sh ../configure --prefix=/opt/firefox --disable-optimize --with-system-zlib --with-system-jpeg --enable-svg --disable-tests --disable-installer --disable-accessibility --enable-xinerama --enable-application=browser --disable-crashreporter --disable-gconf --disable-pulseaudio --disable-necko-wifi --enable-gstreamer=1.0 --enable-system-hunspell --enable-system-sqlite --with-system-libevent --with-system-libvpx --with-system-nspr --with-system-nss --with-system-icu --disable-updater --enable-optimize --enable-official-branding --enable-safe-browsing --enable-url-classifier --enable-system-ffi --enable-system-pixman --with-system-bz2 --with-system-jpeg --with-system-png --with-system-zlib
                    SHELL=/bin/sh make -j 6 ; SHELL=/bin/sh make install
                    ###ln -s /opt/firefox/bin/firefox /usr/bin/
