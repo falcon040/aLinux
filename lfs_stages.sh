@@ -8,19 +8,18 @@ J=5
 
 # "sandybridge"	
 #  Intel Sandy Bridge CPU with 64-bit extensions, 
-#  MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1,
-#  SSE4.2, POPCNT, AVX, AES and PCLMUL instruction set support.
+#  MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AES, PCLMUL 
+#  instruction set support.
 
 # "ivybridge"
 #  Intel Ivy Bridge CPU with 64-bit extensions, 
-#  MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1,
-#  SSE4.2, POPCNT, AVX, AES, PCLMUL, FSGSBASE, RDRND and F16C instruction set support.
+#  sandybridge + FSGSBASE, RDRND and F16C 
+#  instruction set support.
 
 # "haswell"
 #  Intel Haswell CPU with 64-bit extensions, 
-#  MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-#  SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI, BMI2 and
-#  F16C instruction set support.                                         
+#  ivybridge + MOVBE, AVX2, AES, FMA, BMI, BMI2 
+#  instruction set support.                                         
                                          
 ARCH="ivybridge"
 LFSCFLAGS="-O2 -s -march=$ARCH -pipe "
@@ -872,14 +871,16 @@ if test $1 = stage51
 then
 tar xvf  SOURCE/$NCURSES
 cd ncurses-*
-sed -i s/mawk// configure
-# /usr/lib/libncursesw.so.6.0
-./configure --prefix=/usr --with-shared --without-debug --enable-widec --without-ada
+sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in
+./configure --prefix=/usr --mandir=/usr/share/man --without-gpm --with-shared --without-debug --without-normal --enable-widec --without-ada
 make -j $J && make install
-make clean
-# /usr/lib/libncurses.so.6.0
-./configure --prefix=/usr --with-shared --without-debug --without-ada
-make -j $J && make install
+
+for lib in ncurses form panel menu ; do
+ rm -vf                    /usr/lib/lib${lib}*.a
+ rm -vf                    /usr/lib/lib${lib}.so
+ echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
+done
+ln -sf /usr/lib/libncursesw.so.6 /usr/lib/libncurses.so.6
 
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 echo "JETZT stage51attr starten !!!!!"
@@ -943,11 +944,12 @@ if test $1 = stage56
 then
 tar xvfz SOURCE/$READLINE
 cd readline-*
+patch -Np1 -i ../SOURCE/readline-6.3-upstream_fixes-3.patch
 sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install
-./configure --prefix=/usr --libdir=/lib
+./configure --prefix=/usr --libdir=/lib --disable-static
 make SHLIB_LIBS=-lncurses
-make install
+make SHLIB_LIBS=-lncurses install
 chmod -v 755 /lib/lib{readline,history}.so*
 fi
 
@@ -985,6 +987,7 @@ if test $1 = stage60
 then
 tar xvfz SOURCE/$BASH
 cd bash-*
+patch -Np1 -i ../SOURCE/bash-4.3.30-upstream_fixes-2.patch
 ./configure --prefix=/usr --bindir=/bin --without-bash-malloc --with-installed-readline
 make -j $J && make install
 cd /

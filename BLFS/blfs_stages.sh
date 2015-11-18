@@ -359,7 +359,7 @@ downloadliste1=(
 );
 
 # bmpanel2 - conky - openbox - rxvt - feh - LX
-downloadliste1=(
+downloadliste=(
  "http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
  "http://http.debian.net/debian/pool/main/g/gtk2-engines-murrine/gtk2-engines-murrine_0.98.1.1.orig.tar.gz"
  "ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.19/gtksourceview-3.19.1.tar.xz"
