@@ -418,13 +418,27 @@ downloadliste1=(
  "spotify"
 );
 
+# gimp
+downloadliste1=(
+ "http://ftp.gtk.org/pub/babl/0.1/babl-0.1.14.tar.bz2"
+ "http://download.gimp.org/pub/gegl/0.2/gegl-0.2.0.tar.bz2"
+ "http://cairographics.org/releases/py2cairo-1.10.0.tar.bz2"
+ "http://www.linuxfromscratch.org/patches/blfs/svn/pygobject-2.28.6-fixes-1.patch"
+ "ftp://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.6.tar.xz"
+ "ftp://ftp.gnome.org/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2"
+ "http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2"
+);
+
+# Mail Programm Balsa
+downloadliste=(
+"http://www.stafford.uklinux.net/libesmtp/libesmtp-1.0.6.tar.bz2"
+"http://pawsa.fedorapeople.org/balsa/balsa-2.5.2.tar.bz2"
+);
 
 downloadliste1=( 
  "http://downloads.webmproject.org/releases/webp/libwebp-0.4.3.tar.gz"
  "http://www.linuxfromscratch.org/patches/blfs/svn/jasper-1.900.1-security_fixes-2.patch"
  "http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-1.900.1.zip"
- ############"http://dbus.freedesktop.org/releases/dbus/dbus-1.10.0.tar.gz"
- 
  "http://freedesktop.org/~hadess/shared-mime-info-1.5.tar.xz"
  "http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch"
  "ftp://sources.redhat.com/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
@@ -436,23 +450,11 @@ downloadliste1=(
  "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.42.tgz"
  "http://www.linuxfromscratch.org/patches/blfs/svn/pcre-8.37-upstream_fixes-1.patch"
  "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2"
- ##############"http://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.104.tar.gz"
  "http://libndp.org/files/libndp-1.5.tar.gz"
  "ftp://ftp.gnome.org/pub/gnome/sources/libgudev/230/libgudev-230.tar.xz"
- #################"https://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v4.10.8/src/nspr-4.10.8.tar.gz"
- #################"http://www.linuxfromscratch.org/patches/blfs/systemd/nss-3.20-standalone-1.patch"
- #################"http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.20.tar.gz"
- ################ "ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.0/NetworkManager-1.0.6.tar.xz"
- 
- ##############"http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.4.5.tar.xz"
- ##############"http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.4.5.tar.xz"
- ##############"http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.4.5.tar.xz"
- ##############"http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.4.5.tar.xz"
  "http://download.videolan.org/vlc/2.2.1/vlc-2.2.1.tar.xz"
  "http://kcat.strangesoft.net/openal-releases/openal-soft-1.16.0.tar.bz2" 
- ############### "http://ftp.mozilla.org/pub/mozilla.org/js/mozjs17.0.0.tar.gz"
  "http://linux-pam.org/library/Linux-PAM-1.2.1.tar.bz2"
- ############### "http://www.freedesktop.org/software/polkit/releases/polkit-0.113.tar.gz"
  "http://downloads.us.xiph.org/releases/speex/speex-1.2rc2.tar.gz"
  "http://downloads.us.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz"
  "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.12.tar.gz"
@@ -460,17 +462,6 @@ downloadliste1=(
  "https://launchpad.net/bzr/2.6/2.6.0/+download/bzr-2.6.0.tar.gz"
  "http://freedesktop.org/software/pulseaudio/releases/pulseaudio-6.0.tar.xz"
  
- ############# "http://ftp.stack.nl/pub/doxygen/doxygen-1.8.10.src.tar.gz"
- ############# "http://downloads.sourceforge.net/project/fontforge/fontforge-source/fontforge_full-20120731-b.tar.bz2" 
- ############# "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
- ############# "http://sourceforge.net/projects/cracklib/files/cracklib-words/2008-05-07/cracklib-words-20080507.gz"
- ############# "https://fedorahosted.org/releases/l/i/libpwquality/libpwquality-1.3.0.tar.bz2"
- ############# "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.10.tar.gz"
- ############# "http://www.linuxfromscratch.org/patches/blfs/svn/cyrus-sasl-2.1.26-fixes-3.patch"
- ############# "ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-2.1.26.tar.gz"
- ############# "http://sourceforge.net/projects/freeassociation/files/libical/libical-0.48/libical-0.48.tar.gz"
- ############# "http://oligarchy.co.uk/xapian/1.2.21/xapian-core-1.2.21.tar.xz"
-
  ##### Da haben einige Pakete Kreisfoermige Abhaengigkeiten
  "ftp://ftp.gnome.org/pub/gnome/sources/atk/2.18/atk-2.18.0.tar.xz"
  "ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.18/at-spi2-core-2.18.0.tar.xz"
@@ -482,11 +473,11 @@ downloadliste1=(
  "ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.19/gtk+-3.19.1.tar.xz"
  
  # gnome icons + BluefishEditor
-  "ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
-  "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
+ "ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.18/adwaita-icon-theme-3.18.0.tar.xz" 
+ "http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.7.tar.bz2"
  # Weston
-  "http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2"
-  "http://wayland.freedesktop.org/releases/weston-1.8.0.tar.xz"
+ "http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2"
+ "http://wayland.freedesktop.org/releases/weston-1.8.0.tar.xz"
   
  "http://www.exiv2.org/exiv2-0.25.tar.gz"
  "http://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2"
@@ -651,6 +642,9 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   
  
   case "$name" in
+     balsa)        config '--without-html-widget  --without-libnotify ';;
+     py2cairo)     ./waf configure --prefix=/usr ; ./waf build ; ./waf install ;; 
+     gimp)         configopt 'gimp' ;;
      nautilus)	   config ' --enable-tracker=no ' ;;
      avahi)	   sed -i 's/\(CFLAGS=.*\)-Werror \(.*\)/\1\2/' configure ; sed -e 's/-DG_DISABLE_DEPRECATED=1//' -e '/-DGDK_DISABLE_DEPRECATED/d'  -i avahi-ui/Makefile.in
       		   config '--localstatedir=/var --disable-mono  --disable-monodoc --disable-python --disable-qt3 --disable-qt4 --with-distro=none -with-systemdsystemunitdir=no ' ;;
