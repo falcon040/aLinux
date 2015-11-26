@@ -397,6 +397,7 @@ downloadliste=(
  "http://zoncolor.googlecode.com/files/zoncolor-themes-pack_1.6.5.tar.gz"
  "http://savannah.nongnu.org/download/leafpad/leafpad-0.8.17.tar.gz"
  "http://download.geany.org/geany-1.25.tar.bz2"
+ "tint2.tar.gz"
 );
 
 # Audacious der Audio Player
@@ -429,8 +430,15 @@ downloadliste1=(
  "http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2"
 );
 
-# Mail Programm Balsa
+
+# Openoffice
 downloadliste=(
+#"http://cpan.metacpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.53.tar.gz"
+"OpenOffice"
+);
+
+# Mail Programm Balsa
+downloadliste1=(
 "http://www.stafford.uklinux.net/libesmtp/libesmtp-1.0.6.tar.bz2"
 "http://pawsa.fedorapeople.org/balsa/balsa-2.5.2.tar.bz2"
 );
@@ -561,6 +569,38 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   set -e
 
   case "$ordnerdir" in
+    OpenOffice)			wget --no-check-certificate -c http://download.documentfoundation.org/libreoffice/src/5.0.3/libreoffice-dictionaries-5.0.3.2.tar.xz
+				wget --no-check-certificate -c http://download.documentfoundation.org/libreoffice/src/5.0.3/libreoffice-help-5.0.3.2.tar.xz
+				wget --no-check-certificate -c http://download.documentfoundation.org/libreoffice/src/5.0.3/libreoffice-translations-5.0.3.2.tar.xz
+				wget --no-check-certificate -c http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-5.0.3.2-boost_1_59_0-1.patch
+				wget --no-check-certificate -c http://download.documentfoundation.org/libreoffice/src/5.0.3/libreoffice-5.0.3.2.tar.xz
+				tar -xf libreoffice-5*.tar.xz --no-overwrite-dir &&
+				cd libreoffice-5*
+				install -dm755 external/tarballs &&
+				ln -sv ../../../libreoffice-dictionaries-5.0.3.2.tar.xz external/tarballs/ 
+				ln -sv ../../../libreoffice-help-5.0.3.2.tar.xz         external/tarballs/
+				ln -sv ../../../libreoffice-translations-5.0.3.2.tar.xz external/tarballs/
+				export LO_PREFIX=/opt/libreoffice-5.0.3.2
+				patch -Np1 -i ../libreoffice-5.0.3.2-boost_1_59_0-1.patch
+				sed -e "/gzip -f/d"   -e "s|.1.gz|.1|g" -i bin/distro-install-desktop-integration 
+				sed -e "/distro-install-file-lists/d" -i Makefile.in 
+				sed -e "/ustrbuf/a #include <algorithm>" -i svl/source/misc/gridprinter.cxx   
+				chmod -v +x bin/unpack-sources 
+				LDFLAGS=-L/usr/X11/lib ./autogen.sh --prefix=$LO_PREFIX --sysconfdir=/etc --with-vendor="BLFS" --with-lang="de en-US" --with-help  --with-myspell-dicts \
+             			--with-alloc=system --with-system-curl  --without-java --without-system-dicts --disable-gconf  --disable-odk  --disable-postgresql-sdbc --enable-release-build=yes \
+             			--enable-python=system --with-system-boost --with-system-cairo --with-system-libpng  --with-system-libxml --with-system-mesa-headers --with-system-icu \
+             			--with-system-openssl --with-system-zlib  --with-parallelism=$(getconf _NPROCESSORS_ONLN)
+				make build 
+				make distro-pack-install 
+				install -v -m755 -d $LO_PREFIX/share/appdata              
+				install -v -m644    sysui/desktop/appstream-appdata/*.xml $LO_PREFIX/share/appdata
+				# Icons
+  				mkdir -vp /usr/share/pixmaps
+  				for i in $LO_PREFIX/share/icons/hicolor/32x32/application/*; do
+    				  ln -svf $i /usr/share/pixmaps
+  				done
+  				continue
+				;;    
     cups-*)			cd cups-*/
      				sed -i 's:555:755:g;s:444:644:g' Makedefs.in  
      				sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4          
@@ -642,6 +682,9 @@ for((i=0;i<${#downloadliste[*]};i++)); do
   
  
   case "$name" in
+     tint2)        mkdir build ; cd build ;  cmake -DCMAKE_INSTALL_PREFIX=/usr ../ ; make ; make install 
+                   mkdir -pv /root/.config/tint2
+                   cp -a /BLFS/EXTRA/vertical-light-transparent.tint2rc /root/.config/tint2/vertical-light-transparent.tint2rc ;;
      balsa)        config '--without-html-widget  --without-libnotify ';;
      py2cairo)     ./waf configure --prefix=/usr ; ./waf build ; ./waf install ;; 
      gimp)         configopt 'gimp' ;;
@@ -891,6 +934,7 @@ for((i=0;i<${#downloadliste[*]};i++)); do
                    ;;
      hunspell)     ln -sf /usr/lib/aspell /usr/share/myspell ; config ;;
      #PERL Modules
+     Archive)      perl Makefile.PL ; make ; make install ;;
      URI)	   perl Makefile.PL ; make ; make install ;;
      XML)          perl Makefile.PL ; make ; make install ;;
      #Python2/3 Modules 
